@@ -1,5 +1,3 @@
--- Drop and recreate Widgets table (Example)
-
 DROP TABLE IF EXISTS favorites CASCADE;
 
 CREATE TABLE favorites (
