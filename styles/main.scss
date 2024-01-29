@@ -16,3 +16,17 @@ body {
     rgba(163, 208, 219, 1) 100%
   );
 }
+
+.featured-item {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: yellow;
+}
