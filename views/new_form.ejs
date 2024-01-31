@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Item Form</title>
+</head>
+<body>
+
+  <h2>New Item Form</h2>
+
+  <form action="/api/add" method="post" id="new-item-form">
+    <div>
+      <label for="item-title">Title:</label>
+      <input type="text" name="title" id="item-title" required>
+    </div>
+
+    <div>
+      <label for="item-description">Description:</label>
+      <textarea name="description" id="item-description" rows="4" required></textarea>
+    </div>
+
+    <div>
+      <label for="item-price">Price:</label>
+      <input type="number" name="price" id="item-price" required>
+    </div>
+
+    <!-- Add more fields based on your item properties -->
+
+    <div>
+      <button type="submit">Add Item</button>
+    </div>
+  </form>
+
+</body>
+</html>

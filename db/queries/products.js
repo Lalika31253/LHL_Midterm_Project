@@ -1,27 +1,27 @@
 const db = require('../connection');
 
-const getProducts = () => {
-  return db.query('SELECT * FROM products;')
-    .then(data => {
-      return data.rows;
-    })
-    .catch(error => {
-      console.log(error.message);
-      throw error;
-    });
-};
+// const getProducts = () => {
+//   return db.query('SELECT * FROM products;')
+//     .then(data => {
+//       return data.rows;
+//     })
+//     .catch(error => {
+//       console.log(error.message);
+//       throw error;
+//     });
+// };
 
-const getProduct = (id) => {
-  const queryParams = [id];
-  return db.query('SELECT * FROM products WHERE id =$1', queryParams)
-  .then(data => {
-    return data.rows;
-  })
-  .catch (error => {
-    console.log(error.message);
-    throw error;
-  });
-};
+// const getProduct = (id) => {
+//   const queryParams = [id];
+//   return db.query('SELECT * FROM products WHERE id =$1', queryParams)
+//   .then(data => {
+//     return data.rows;
+//   })
+//   .catch (error => {
+//     console.log(error.message);
+//     throw error;
+//   });
+// };
 
 const addProduct = (options) => {
   const title = options.title;
@@ -57,4 +57,4 @@ const addProduct = (options) => {
   });
 };
 
-module.exports = { getProducts, getProduct, addProduct };
+module.exports = { addProduct };
