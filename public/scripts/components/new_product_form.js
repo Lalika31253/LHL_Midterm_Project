@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 
   const $newProductForm = $(`
-  <form action="/api/products" method="post" id="new-product-form" class="new-product-form">
+  <form action="/api/add" method="post" id="new-product-form" class="new-product-form">
       <div class="new-product-form__field-wrapper">
         <label for="new-product-form__title">Title</label>
         <input type="text" name="title" placeholder="Title" id="new-product-form__title">
