@@ -6,10 +6,53 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
+const db = require('../db/connection');
+const { addProduct } = require('../db/queries/products');
 
-router.get('/', (req, res) => {
-  res.render('users');
-});
+router.route('/')
+  .get((req, res) => {
+    res.render('index');
+  })
+
+  // .post(async (req, res) => {
+  //   console.log('POST request to /api/add received!');
+  //   try {
+  //     const formData = req.body;
+  //     const newProduct = await addProduct(formData);
+  
+  //     res.json({success: true, newProduct});
+  //   } catch (error) {
+  //     console.log(error);
+  //     res.status(500).json({success: false, error: 'Server error'});
+  //   }
+  // });
+
+
+//route to handle add_product
+router.route('/add')
+  .get((req, res) => {
+    res.render('new_form');
+  });
+
+  router.route('/api/add') 
+  .post(async (req, res) => {
+      console.log('POST request to /api/add received!');
+      try {
+        const formData = req.body;
+        const newProduct = await addProduct(formData);
+    
+        res.json({success: true, newProduct});
+      } catch (error) {
+        console.log(error);
+        res.status(500).json({success: false, error: 'Server error'});
+      }
+    });
+
+
+router.route('/test')
+  .get((req, res) => {
+    res.render('test');
+  });
 
 module.exports = router;
