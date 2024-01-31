@@ -21,4 +21,16 @@ router.get('/', (req, res) => {
     });
 });
 
+
+// We'll need something like this to connect to for the filter by price?
+// router.get("/properties", (req, res) => {
+//   database
+//     .getAllProperties(req.query, 20)
+//     .then((properties) => res.send({ properties }))
+//     .catch((e) => {
+//       console.error(e);
+//       res.send(e);
+//     });
+// });
+
 module.exports = router;

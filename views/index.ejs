@@ -34,31 +34,28 @@
 
   <h2>Featured items</h2>
 
-  <article class="featured-item" style="border: solid;">
-    <section class="featured-item__preview-image">
-      <img src="../couch.jpeg" alt="featured-furniture">
-    </section>
-    <section class="featured-item__details">
-      <h3 class="featured-item__title">Example item</h3>
-      <ul class="featured-item__details">
-        <li>Item name: </li>
-        <li>something</li>
-        <li>something else... star item?:</li>
-      </ul>
-      <!-- This could be used for something? -->
-      <!-- ${isReservation ?
-        `<p>${moment(property.start_date).format('ll')} - ${moment(property.end_date).format('ll')}</p>`
-        : ``} -->
-      <footer class="featured-item__footer">
-        <div class="featured-item__rating">Leaving as example...${Math.round(property.average_rating * 100) / 100}/5
-          stars</div>
-        <div class="featured-item__rating">rating</div>
-        <div class="featured-item__price">price</div>
-        <div class="featured-item__price"><button>favourite item</button></div>
-        <div class="featured-item__price"><a href="https://www.ikea.com/ca/en/">send message to user</a></div>
-      </footer>
-    </section>
+  <% for (let id in products) { %>
+
+  <article class="featured-item" style="border: solid; width: 500px;">
+  <section class="featured-item__preview-image">
+    <img src="<%- products[id].photo_url_1 %>" alt="featured-furniture" style="width: 200px;">
+  </section>
+  <section class="featured-item__details">
+    <h3 class="featured-item__title"><%- products[id].title %></h3>
+    <footer class="featured-item__footer">
+      <div class="featured-item__rating">Quantity in stock: <%- products[id].stock_quantity %></div>
+      <div class="featured-item__price">price: $<%- products[id].price/100 %></div>
+      <div class="featured-item__price"><button>favourite item</button></div>
+      <div class="featured-item__price"><a href="https://www.ikea.com/ca/en/">send message to user</a></div>
+      <div class="featured-item__price">Description: <%- products[id].description %></div>
+
+    </footer>
+  </section>
   </article>
+
+  <% } %>
+
+  <section id="featured-items"></section>
 
   <!-- Search bar -->
 
