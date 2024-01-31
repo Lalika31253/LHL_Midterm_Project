@@ -1,27 +1,27 @@
 const db = require('../connection');
 
-// const getProducts = () => {
-//   return db.query('SELECT * FROM products;')
-//     .then(data => {
-//       return data.rows;
-//     })
-//     .catch(error => {
-//       console.log(error.message);
-//       throw error;
-//     });
-// };
+const getProducts = () => {
+  return db.query('SELECT * FROM products;')
+    .then(data => {
+      return data.rows;
+    })
+    .catch(error => {
+      console.log(error.message);
+      throw error;
+    });
+};
 
-// const getProduct = (id) => {
-//   const queryParams = [id];
-//   return db.query('SELECT * FROM products WHERE id =$1', queryParams)
-//   .then(data => {
-//     return data.rows;
-//   })
-//   .catch (error => {
-//     console.log(error.message);
-//     throw error;
-//   });
-// };
+const getProduct = (id) => {
+  const queryParams = [id];
+  return db.query('SELECT * FROM products WHERE id =$1', queryParams)
+  .then(data => {
+    return data.rows;
+  })
+  .catch (error => {
+    console.log(error.message);
+    throw error;
+  });
+};
 
 const addProduct = (options) => {
   const title = options.title;
@@ -30,7 +30,8 @@ const addProduct = (options) => {
   const photo_url_1 = options.photo_url_1;
   const photo_url_2 = options.photo_url_2;
   const photo_url_3 = options.photo_url_3;
-  const quantity = options.quantity;
+  const quantity = options.stock_quantity
+  ;
 
 
   const queryParams = [
@@ -44,7 +45,7 @@ const addProduct = (options) => {
   ];
 
   let queryString = `
-  INSERT INTO products(title, description, price, photo_url_1, photo_url_2, photo_url_3, quantity)
+  INSERT INTO products(title, description, price, photo_url_1, photo_url_2, photo_url_3, stock_quantity)
   VALUES ($1, $2, $3, $4, $5, $6, $7)
   RETURNING *;`;
 
