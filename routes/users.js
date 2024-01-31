@@ -33,9 +33,7 @@ router.route('/')
 router.route('/add')
   .get((req, res) => {
     res.render('new_form');
-  });
-
-  router.route('/api/add') 
+  })
   .post(async (req, res) => {
       console.log('POST request to /api/add received!');
       try {
