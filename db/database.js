@@ -1,3 +1,4 @@
+
 // To be edited for price filter
 
 const getAllProperties = (options, limit = 10) => {
@@ -6,9 +7,8 @@ const getAllProperties = (options, limit = 10) => {
 
   // Initial query
   let queryString = `
-  SELECT properties.*, avg(property_reviews.rating) as average_rating
-  FROM properties
-  JOIN property_reviews ON properties.id = property_id
+  SELECT products.*, price
+  FROM products
   `;
 
   // // Search for city
@@ -24,15 +24,15 @@ const getAllProperties = (options, limit = 10) => {
   // }
 
   // Search by cost
-  if (options.minimum_price_per_night && options.maximum_price_per_night) {
-    queryParams.push(options.minimum_price_per_night * 100, options.maximum_price_per_night * 100);
-    queryString += `AND cost_per_night >= $${queryParams.length - 1} AND cost_per_night <= $${queryParams.length}`;
-  } else if (options.minimum_price_per_night) {
-    queryParams.push(options.minimum_price_per_night * 100);
-    queryString += `AND cost_per_night >= $${queryParams.length}`;
-  } else if (options.maximum_price_per_night) {
-    queryParams.push(options.maximum_price_per_night * 100);
-    queryString += `AND cost_per_night <= $${queryParams.length}`;
+  if (options.minimum_price && options.maximum_price) {
+    queryParams.push(options.minimum_price * 100, options.maximum_price * 100);
+    queryString += `AND price >= $${queryParams.length - 1} AND price <= $${queryParams.length}`;
+  } else if (options.minimum_price) {
+    queryParams.push(options.minimum_price * 100);
+    queryString += `AND price >= $${queryParams.length}`;
+  } else if (options.maximum_price) {
+    queryParams.push(options.maximum_price * 100);
+    queryString += `AND price <= $${queryParams.length}`;
   }
 
   queryString += `
@@ -40,8 +40,8 @@ const getAllProperties = (options, limit = 10) => {
   `;
 
   // // Search by rating
-  // if (options.minimum_rating) {
-  //   queryParams.push(options.minimum_rating);
+  // if (options.minimum_price_rating) {
+  //   queryParams.push(options.minimum_price_rating);
   //   queryString += `
   //    HAVING avg(property_reviews.rating) >= $${queryParams.length}`;
   // }

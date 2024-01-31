@@ -43,10 +43,10 @@
       <i id="angles-down" class="fa-solid fa-angles-down"></i>
     </div>
 
-      <a class="home">🏠</a>
-      <a class="search_button">Search</a>
-      <a class="login_button">Log In</a>
-      <a class="sign-up_button">Sign Up</a>
+    <a class="home">🏠</a>
+    <a class="search_button">Search</a>
+    <a class="login_button">Log In</a>
+    <a class="sign-up_button">Sign Up</a>
 
   </nav>
 
@@ -57,31 +57,7 @@
 
   <h2>Featured items</h2>
 
-  <article class="featured-item" style="border: solid;">
-    <section class="featured-item__preview-image">
-      <img src="../couch.jpeg" alt="featured-furniture">
-    </section>
-    <section class="featured-item__details">
-      <h3 class="featured-item__title">Example item</h3>
-      <ul class="featured-item__details">
-        <li>Item name: </li>
-        <li>something</li>
-        <li>something else... star item?:</li>
-      </ul>
-      <!-- This could be used for something? -->
-      <!-- ${isReservation ?
-        `<p>${moment(property.start_date).format('ll')} - ${moment(property.end_date).format('ll')}</p>`
-        : ``} -->
-      <footer class="featured-item__footer">
-        <div class="featured-item__rating">Leaving as example...${Math.round(property.average_rating * 100) / 100}/5
-          stars</div>
-        <div class="featured-item__rating">rating</div>
-        <div class="featured-item__price">price</div>
-        <div class="featured-item__price"><button>favourite item</button></div>
-        <div class="featured-item__price"><a href="https://www.ikea.com/ca/en/">send message to user</a></div>
-      </footer>
-    </section>
-  </article>
+  <section id="featured-items"></section>
 
   <!-- Search bar -->
 
