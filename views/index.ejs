@@ -57,6 +57,27 @@
 
   <h2>Featured items</h2>
 
+  <% for (let id in products) { %>
+
+  <article class="featured-item" style="border: solid; width: 500px;">
+  <section class="featured-item__preview-image">
+    <img src="<%- products[id].photo_url_1 %>" alt="featured-furniture" style="width: 200px;">
+  </section>
+  <section class="featured-item__details">
+    <h3 class="featured-item__title"><%- products[id].title %></h3>
+    <footer class="featured-item__footer">
+      <div class="featured-item__rating">Quantity in stock: <%- products[id].stock_quantity %></div>
+      <div class="featured-item__price">price: $<%- products[id].price/100 %></div>
+      <div class="featured-item__price"><button>favourite item</button></div>
+      <div class="featured-item__price"><a href="https://www.ikea.com/ca/en/">send message to user</a></div>
+      <div class="featured-item__price">Description: <%- products[id].description %></div>
+
+    </footer>
+  </section>
+  </article>
+
+  <% } %>
+
   <section id="featured-items"></section>
 
   <!-- Search bar -->
