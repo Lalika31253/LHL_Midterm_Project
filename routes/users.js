@@ -12,7 +12,7 @@ const { addProduct } = require('../db/queries/products');
 
 router.route('/')
   .get((req, res) => {
-    res.render('index');
+    res.render('new_form');
   })
 
   // .post(async (req, res) => {
@@ -20,7 +20,7 @@ router.route('/')
   //   try {
   //     const formData = req.body;
   //     const newProduct = await addProduct(formData);
-  
+
   //     res.json({success: true, newProduct});
   //   } catch (error) {
   //     console.log(error);
@@ -39,7 +39,7 @@ router.route('/add')
       try {
         const formData = req.body;
         const newProduct = await addProduct(formData);
-    
+
         res.json({success: true, newProduct});
       } catch (error) {
         console.log(error);
