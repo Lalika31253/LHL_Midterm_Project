@@ -14,7 +14,6 @@ const db = new Pool(dbParams);
 
 db.connect();
 
-db.query(`SELECT * FROM products LIMIT 1;`).then(response => {console.log(response)})
-db.query(`SELECT * FROM users LIMIT 1;`).then(response => {console.log(response)})
+db.query(`SELECT * FROM products LIMIT 1;`).then(response => {console.log(response)});
 
 module.exports = db;

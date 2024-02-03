@@ -13,6 +13,8 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
+const db = require('./db/connection');
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -40,19 +42,28 @@ app.use(cookieParser('your secret key'));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
+<<<<<<< HEAD
 const loginRoutes = require('./routes/login');
 const searchRoutes = require('./routes/search');
+=======
+const newProductForm = require('./routes/users');
+
+>>>>>>> master
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
+<<<<<<< HEAD
 app.use('/login', loginRoutes);
 app.use('/search', searchRoutes);
+=======
+app.use('/add', newProductForm);
+
+
+>>>>>>> master
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -61,7 +72,13 @@ app.use('/search', searchRoutes);
 
 
 app.get('/', (req, res) => {
-  res.render('index');
+
+  db.query(`SELECT * FROM products`)
+  .then(data => {
+    // console.log(data.rows);
+    res.render('index', { products: data.rows });
+  })
+
 });
 
 app.listen(PORT, () => {
