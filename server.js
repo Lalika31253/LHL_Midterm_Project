@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
 
   db.query(`SELECT * FROM products`)
   .then(data => {
-    console.log(data.rows);
+    // console.log(data.rows);
     res.render('index', { products: data.rows });
   })
 

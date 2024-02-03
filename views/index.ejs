@@ -25,7 +25,30 @@
 
 <body>
 
+<<<<<<< HEAD
+  <!-- Nav -->
+
+  <nav id="nav" class="nav">
+    <span id="logo">LOGO
+      <pre>
+      .-="""""""""""=-.
+      | . . . . . . . |
+      | .'.'.'.'.'.'. |
+     ()_______________()
+     ||_______________||
+      W               W
+     </pre>
+    </span>
+
+    <a class="home">🏠 Home</a>
+    <a class="search_button">Search</a>
+    <a class="login_button">About</a>
+    <a class="login_button">Log In</a>
+
+  </nav>
+=======
   <%- include('header') %>
+>>>>>>> master
 
   <h1>Furniture Seller!</h1>
 
@@ -33,6 +56,9 @@
   <!-- Featured items -->
 
   <h2>Featured items</h2>
+
+  <!-- If the id matches the id with the matching price paramters, show that box -->
+
 
   <% for (let id in products) { %>
 
@@ -45,9 +71,16 @@
     <footer class="featured-item__footer">
       <div class="featured-item__rating">Quantity in stock: <%- products[id].stock_quantity %></div>
       <div class="featured-item__price">price: $<%- products[id].price/100 %></div>
-      <div class="featured-item__price"><button>favourite item</button></div>
-      <div class="featured-item__price"><a href="https://www.ikea.com/ca/en/">send message to user</a></div>
-      <div class="featured-item__price">Description: <%- products[id].description %></div>
+      <div class="featured-item__description">Description: <%- products[id].description %></div>
+      <div class="featured-item__favourite">Favourite<i class="fa-regular fa-heart"></i></div>
+      <div class="featured-item__message"><a href="https://www.ikea.com/ca/en/">send message to user</a></div>
+      <div class="featured-item__message">Avalable:
+        <% if (products[id].is_sold === false) { %>
+        <div>Not sold</div>
+        <% } else { %>
+        <div>SOLD</div>
+        <% } %>
+      </div>
 
     </footer>
   </section>
@@ -55,17 +88,21 @@
 
   <% } %>
 
-  <section id="featured-items"></section>
+  <section id="filtered-items"></section>
 
   <!-- Search bar -->
 
   <h2>Filter by price</h2>
-  <div class="search-property-form__field-wrapper">
+
+  <!-- <form action="/" method="post" id="filter-price-form"> -->
+  <div class="filter-price-div">
     <label for="minimum_price">Minimum Cost</label>
     <input type="number" name="minimum_price" placeholder="Minimum Cost" id="search-minimum-price">
     <label for="maximum-price-per-night">Maximum Cost</label>
     <input type="number" name="maximum_price" placeholder="Maximum Cost" id="search-maximum-price">
+    <button id="filter-price">Search</button>
   </div>
+  <!-- </form> -->
 
   <small>Copyright LHL OCT 16 COHORT</small> 
   
