@@ -1,5 +1,6 @@
 // Client facing scripts here
 
+<<<<<<< HEAD
 
 $(() => {
   $('#filter-price').on('click', () => {
@@ -20,3 +21,13 @@ $(() => {
   //   // console.log('hello');
   });
 });
+=======
+//add-button functionality for adding an item
+
+
+// $(document).ready(function() {
+//   $(".add_button").on("click", function() {
+//     window.location.href="/add";
+//   });
+
+>>>>>>> master
