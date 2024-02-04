@@ -2,7 +2,7 @@ const { response } = require("express");
 
 $(document).ready(function () {
   
-  $('#new-product-form').on('submit', function (event) {
+  $('.login-form').on('submit', function (event) {
     event.preventDefault();
     // Serialize form data
     const formData = $(this).serialize();
@@ -10,7 +10,7 @@ $(document).ready(function () {
     // Send a POST request to the server
     $.ajax({
       method: 'POST',
-      url: '/add',
+      url: '/login',
       data: formData,
       success: function (response) {
         console.log('success');
