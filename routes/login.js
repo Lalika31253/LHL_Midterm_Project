@@ -2,9 +2,13 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
 
+
 router.route('/')
 .get((req, res) => {
-  res.render('login_form');
+  // const userData = req.user;
+  const userData = res.locals.user
+  
+  res.render('login_form', { user: userData});
 });
 
 router.post('/', (req, res) => {
@@ -26,10 +30,11 @@ router.post('/', (req, res) => {
         return res.status(401).json({ error: 'Invalid username or password' });
       }
 
-      // req.session.user = user;
+      res.locals.user = user;
+      
       res.cookie('user_id', user.id, {maxAge: 24 * 60 * 60 * 1000});
       // res.json({ message: 'Login successful'});
-      res.redirect('/');
+      res.redirect('/'); //pas user object to the template
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
