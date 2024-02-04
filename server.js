@@ -5,10 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
-<<<<<<< HEAD
-=======
 // const cookieSession = require('cookie-session');
->>>>>>> e9ab06399c33f41eed136dd6f382548290210fc8
 const cookieParser = require('cookie-parser');
 
 const PORT = process.env.PORT || 8080;
