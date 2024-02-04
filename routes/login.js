@@ -5,7 +5,6 @@ const db = require('../db/connection');
 
 router.route('/')
 .get((req, res) => {
-  // const userData = req.user;
   const userData = res.locals.user
   
   res.render('login_form', { user: userData});
