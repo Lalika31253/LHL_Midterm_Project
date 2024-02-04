@@ -46,11 +46,13 @@ const usersRoutes = require('./routes/users');
 const loginRoutes = require('./routes/login');
 const searchRoutes = require('./routes/search');
 const newProductForm = require('./routes/users');
+const filterRoutes = require('./routes/filter');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
+app.use('/api/filter', filterRoutes);
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/search', searchRoutes);

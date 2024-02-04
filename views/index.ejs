@@ -27,61 +27,67 @@
 
   <%- include('header') %>
 
-  <h1>Furniture Seller!</h1>
+    <h1>Furniture Seller!</h1>
+
+    <!-- Search bar -->
+
+    <h2>Filter by price</h2>
+
+    <form id="filter-price-form">
+    <div class="filter-price-div">
+      <label>Minimum Cost<input type="number" name="minimum_price" placeholder="Minimum Cost" id="search-minimum-price">
+      </label>
+      <label>Maximum Cost<input type="number" name="maximum_price" placeholder="Maximum Cost" id="search-maximum-price"></label>
+      <button id="filter-price" type="submit">Search</button>
+    </div>
+    </form>
+
+    <div id="filtered-items"></div>
+
+    <!-- Featured items -->
+
+    <h2>Featured items</h2>
+
+    <!-- If the id matches the id with the matching price paramters, show that box -->
 
 
-  <!-- Featured items -->
+    <div id="featured-items-container">
 
-  <h2>Featured items</h2>
-
-  <!-- If the id matches the id with the matching price paramters, show that box -->
+    <% for (let id in products) { %>
 
 
-  <% for (let id in products) { %>
 
-  <article class="featured-item" style="border: solid; width: 500px;">
-  <section class="featured-item__preview-image">
-    <img src="<%- products[id].photo_url_1 %>" alt="featured-furniture" style="width: 200px;">
-  </section>
-  <section class="featured-item__details">
-    <h3 class="featured-item__title"><%- products[id].title %></h3>
-    <footer class="featured-item__footer">
-      <div class="featured-item__rating">Quantity in stock: <%- products[id].stock_quantity %></div>
-      <div class="featured-item__price">price: $<%- products[id].price/100 %></div>
-      <div class="featured-item__description">Description: <%- products[id].description %></div>
-      <div class="featured-item__favourite">Favourite<i class="fa-regular fa-heart"></i></div>
-      <div class="featured-item__message"><a href="https://www.ikea.com/ca/en/">send message to user</a></div>
-      <div class="featured-item__message">Avalable:
-        <% if (products[id].is_sold === false) { %>
-        <div>Not sold</div>
-        <% } else { %>
-        <div>SOLD</div>
-        <% } %>
+      <article class="featured-item">
+        <section class="featured-item__preview-image">
+          <img src="<%- products[id].photo_url_1 %>" alt="featured-furniture" style="width: 200px; border:solid;">
+        </section>
+        <section class="featured-item__details">
+          <h3 class="featured-item__title"><%- products[id].title %></h3>
+          <footer class="featured-item__footer">
+            <div class="featured-item__rating">Quantity in stock: <%- products[id].stock_quantity %></div>
+            <div class="featured-item__price">Price: $<%- products[id].price/100 %></div>
+            <div class="featured-item__description">Description: <%- products[id].description %></div>
+            <div class="featured-item__favourite">Favourite<i class="fa-regular fa-heart"></i></div>
+            <div class="featured-item__message"><a href="https://www.ikea.com/ca/en/">send message to user</a></div>
+            <div class="featured-item__message">Avalable:
+              <% if (products[id].is_sold===false) { %>
+                <div>Not sold</div>
+                <% } else { %>
+                  <div>SOLD</div>
+                  <% } %>
+            </div>
+
+          </footer>
+        </section>
+      </article>
+
+
+
+      <% } %>
+
       </div>
 
-    </footer>
-  </section>
-  </article>
-
-  <% } %>
-
-  <section id="filtered-items"></section>
-
-  <!-- Search bar -->
-
-  <h2>Filter by price</h2>
-
-  <!-- <form action="/" method="post" id="filter-price-form"> -->
-  <div class="filter-price-div">
-    <label for="minimum_price">Minimum Cost</label>
-    <input type="number" name="minimum_price" placeholder="Minimum Cost" id="search-minimum-price">
-    <label for="maximum-price-per-night">Maximum Cost</label>
-    <input type="number" name="maximum_price" placeholder="Maximum Cost" id="search-maximum-price">
-    <button id="filter-price">Search</button>
-  </div>
-  <!-- </form> -->
-
-  <small>Copyright LHL OCT 16 COHORT</small>
+        <small>Copyright LHL OCT 16 COHORT</small>
 
 
 

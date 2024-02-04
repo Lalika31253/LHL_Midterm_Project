@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-  
+
   $('#new-product-form').on('submit', function (event) {
     event.preventDefault();
     console.log('Form submitted!');
