@@ -5,7 +5,7 @@ const db = require('../db/connection');
 router.get('/', (req, res) => {
   const searchTerms = req.query.search;
   const query = `SELECT * FROM products WHERE title LIKE $1`;
-  console.log(query);
+  // console.log(query);
   db.query(query, [`%${searchTerms}%`])
     .then(data => {
       const products = data.rows;
