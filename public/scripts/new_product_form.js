@@ -22,12 +22,3 @@ $(document).ready(function () {
 
   });
 });
-<<<<<<< HEAD
-
-  // - That form will make a query post request to the back end
-  // - ie $.post('localhost:8000/api/add')
-  // - backend will have app.post('/api/add')
-
-s
-=======
->>>>>>> bb8c566901ddf6767b462dacd16d3d3f4bd44e3c
