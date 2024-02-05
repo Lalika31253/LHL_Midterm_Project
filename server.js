@@ -47,6 +47,7 @@ const loginRoutes = require('./routes/login');
 const searchRoutes = require('./routes/search');
 const newProductForm = require('./routes/users');
 const filterRoutes = require('./routes/filter');
+const messageRoutes = require('./routes/message');
 
 
 // Mount all resource routes
@@ -58,6 +59,7 @@ app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/search', searchRoutes);
 app.use('/add', newProductForm);
+app.use('/message', messageRoutes);
 
 
 // Note: mount other resources here, using the same pattern above

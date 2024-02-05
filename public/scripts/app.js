@@ -14,8 +14,8 @@ const createProduct = function (productData) {
       <div class="featured-item__rating">Quantity in stock:${productData.stock_quantity}</div>
       <div class="featured-item__price">Price: $${(productData.price)/100}</div>
       <div class="featured-item__description">Description: ${productData.description}</div>
-      <div class="featured-item__favourite">Favourite<i class="fa-regular fa-heart"></i></div>
-      <div class="featured-item__message"><a href="https://www.ikea.com/ca/en/">send message to user</a></div>
+      <div class="featured-item__favourite">Favourite <i class="fa-regular fa-heart"></i></div>
+      <div class="featured-item__message"><a href="/message">send message to user</a></div>
 
     </footer>
   </section>
