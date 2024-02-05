@@ -13,9 +13,12 @@ const { addProduct } = require('../db/queries/products');
 //route to handle add_product
 router.route('/')
   .get((req, res) => {
-    const user = res.locals.user;
-    res.render('new_form', { user: user });
+    
+    const userData = res.locals.user || {};
+    // res.render('new_form', { user: user ? { is_admin: user.is_admin } : null });
+    res.render('new_form', { user: userData })
   })
+
   .post(async (req, res) => {
       console.log('POST request to /api/add received!');
       try {

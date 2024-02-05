@@ -19,7 +19,7 @@
 </head>
 <body>
 
-  <%- include('header') %>
+  <%- include('header', { user: user }) %>
 
   <h3>Login Form</h3>
   <form method="POST" action="/login" class="login-form">

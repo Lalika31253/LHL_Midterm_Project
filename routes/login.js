@@ -5,7 +5,8 @@ const db = require('../db/connection');
 
 router.route('/')
 .get((req, res) => {
-  const userData = res.locals.user
+  const userData = res.locals.user;
+  console.log(userData);
   
   res.render('login_form', { user: userData});
 });
@@ -41,3 +42,4 @@ router.post('/', (req, res) => {
 });
 
 module.exports = router;
+
