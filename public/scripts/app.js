@@ -40,8 +40,6 @@ $('#filter-price-form').submit(function (event) {
     })
 })
 
-//add-button functionality for adding an item
-
 
 $(document).ready(function() {
   $(".add_button").on("click", function() {

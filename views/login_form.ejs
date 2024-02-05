@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+
+
+  <link rel="stylesheet" href="/styles/main.css" />
+  
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+
+</head>
+<body>
+ 
+  <%- include('header') %>
+
+  <h3>Login Form</h3>
+  <form method="POST" action="/login" class="login-form">
+    <div>
+      <label for="email">Email address:</label>
+    </div>
+    <input type="text" name="email" id="email" placeholder="Username">
+    <div>
+      <label for="password">Password:</label>
+    </div>
+    <div>
+      <input type="password" name="password" id="password" placeholder="Password">
+    </div>
+    <br>
+    <button class="">Login</button>
+  </form>
+
+  <script src="scripts/new-product-form.js"></script>
+</body>
+</html>
