@@ -1,14 +1,13 @@
+
 const express = require('express');
 const router = express.Router();
-const db = require('../db/connection');
+const { getPriceFilter } = require('../db/queries/filter-price')
 
 router.get('/', (req, res) => {
-  const searchTerms = req.query.search;
-  const query = `SELECT * FROM products WHERE title LIKE $1`;
-  // console.log(query);
-  db.query(query, [`%${searchTerms}%`])
-    .then(data => {
-      const products = data.rows;
+  console.log(req.query, "hello");
+  getPriceFilter(req.query)
+    .then(products => {
+      // const products = data.rows;
       res.json({ products });
     })
     .catch(err => {
@@ -17,4 +16,5 @@ router.get('/', (req, res) => {
         .json({ error: err.message });
     });
 });
+
 module.exports = router;

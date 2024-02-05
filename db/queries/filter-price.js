@@ -1,13 +1,35 @@
-// const db = require('../connection');
+const db = require('../connection');
 
-// const filterPrice = () => {
-//   return db.query('SELECT id FROM products WHERE price > 80000 AND price < 190000;;') //put the params here...
-//     .then(data => {
-//       return data.rows;
-//     });
-//   // console.log('hello');
-// };
+const getPriceFilter = options => {
 
-// console.log(filterPrice());
+  // const queryParams = [];
 
-// module.exports = { filterPrice };
+  let query = `
+  SELECT products.*
+  FROM products
+  WHERE price >= ${options.minimum_price} AND price <= ${options.maximum_price}
+  ORDER BY price;
+  `;
+
+  return db.query(query)
+  .then((res) => res.rows);
+
+}
+
+// const getPriceFilter = options => {
+
+//   // const queryParams = [];
+
+//   let query = `
+  // SELECT products.*
+  // FROM products
+  // WHERE price >= 0 AND price <= 9999999
+  // ORDER BY price;
+//   `;
+
+//   return db.query(query)
+//   .then((res) => res.rows);
+
+// }
+
+module.exports = { getPriceFilter };
