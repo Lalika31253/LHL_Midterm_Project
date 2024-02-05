@@ -43,27 +43,23 @@ app.use(cookieParser('your secret key'));
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
 const usersRoutes = require('./routes/users');
-<<<<<<< HEAD
 const loginRoutes = require('./routes/login');
+const logoutRoutes = require('./routes/logout');
 const searchRoutes = require('./routes/search');
-=======
 const newProductForm = require('./routes/users');
 
->>>>>>> master
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/users', usersRoutes);
-<<<<<<< HEAD
 app.use('/login', loginRoutes);
+app.use('/logout', logoutRoutes);
 app.use('/search', searchRoutes);
-=======
 app.use('/add', newProductForm);
 
 
->>>>>>> master
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -74,11 +70,10 @@ app.use('/add', newProductForm);
 app.get('/', (req, res) => {
 
   db.query(`SELECT * FROM products`)
-  .then(data => {
+    .then(data => {
     // console.log(data.rows);
-    res.render('index', { products: data.rows });
-  })
-
+      res.render('index', { products: data.rows });
+    });
 });
 
 app.listen(PORT, () => {
