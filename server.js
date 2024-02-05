@@ -36,7 +36,8 @@ app.use(express.static('public'));
 //   keys: ['secret keys'],
 //   maxAge: 24 * 60 * 60 * 1000
 // }));
-app.use(cookieParser('your secret key'));
+// app.use(cookieParser('your secret key'));
+app.use(cookieParser());
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -79,6 +80,7 @@ app.use((req, res, next) => {
         if (user) {
           // If the user exists, set it in res.locals
           res.locals.user = user;
+          console.log(res.locals.user);
         }
         next();
       })
