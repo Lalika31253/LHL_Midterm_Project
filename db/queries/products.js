@@ -35,7 +35,7 @@ const addProduct = (options) => {
 
 
   const queryParams = [
-    title, 
+    title,
     description,
     price,
     photo_url_1,

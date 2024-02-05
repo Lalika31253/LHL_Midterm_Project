@@ -43,21 +43,15 @@
     </div>
     </form>
 
-    <!-- <div id="filtered-items"></div> -->
-
     <!-- Featured items -->
 
     <h2>Featured items</h2>
 
     <!-- If the id matches the id with the matching price paramters, show that box -->
 
-    <div id="filtered-items">
-
-
+    <div id="product-container">
 
       <% for (let id in products) { %>
-
-
 
         <article class="featured-item">
           <section class="featured-item__preview-image">
@@ -72,9 +66,6 @@
               <br>
               <div class="featured-item__description">Description: <%- products[id].description %></div>
               <br>
-
-              <br>
-
               <div class="featured-item__message">Avalable:
                  <% if (products[id].is_sold===false) { %>
                     <span>Not sold</span>
@@ -90,16 +81,11 @@
           </section>
         </article>
 
-
-
         <% } %>
 
       </div>
 
-
         <small>Copyright LHL OCT 16 COHORT</small>
-
-
 
 </body>
 
