@@ -1,35 +1,37 @@
+// Filter products by price
+
 const db = require('../connection');
 
 const getPriceFilter = options => {
+  // Basic validation (You can make this more robust)
+  if (!options.minimum_price || !options.maximum_price) {
+    return Promise.reject(new Error('Missing minimum or maximum price options'));
+  }
 
-  // const queryParams = [];
+  // Convert to numbers to avoid SQL injection and ensure correct query formatting
+  const minPrice = Number(options.minimum_price);
+  const maxPrice = Number(options.maximum_price);
 
+  if (isNaN(minPrice) || isNaN(maxPrice)) {
+    return Promise.reject(new Error('Invalid minimum or maximum price values'));
+  }
+
+  // Parameterized query to prevent SQL injection
   let query = `
-  SELECT products.*
-  FROM products
-  WHERE price >= ${options.minimum_price} AND price <= ${options.maximum_price}
-  ORDER BY price;
+    SELECT products.*
+    FROM products
+    WHERE price >= ($1*100) AND price <= ($2*100)
+    ORDER BY price;
   `;
 
-  return db.query(query)
-  .then((res) => res.rows);
+  const queryParams = [minPrice, maxPrice];
 
+  return db.query(query, queryParams)
+    .then((res) => res.rows)
+    .catch((err) => {
+      // Handle errors, maybe log them and then rethrow or reject
+      throw err;
+    });
 }
-
-// const getPriceFilter = options => {
-
-//   // const queryParams = [];
-
-//   let query = `
-  // SELECT products.*
-  // FROM products
-  // WHERE price >= 0 AND price <= 9999999
-  // ORDER BY price;
-//   `;
-
-//   return db.query(query)
-//   .then((res) => res.rows);
-
-// }
 
 module.exports = { getPriceFilter };
