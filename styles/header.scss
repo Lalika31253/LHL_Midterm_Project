@@ -9,12 +9,13 @@
   height: 250px;
   // position: fixed;
   background-image: url('../styles/images/header.jpg');
-  // opacity: 0.9;
+
   background-position: center; /* Center the background image */
   background-size: cover; /* Cover the entire container with the background image */
   background-repeat: no-repeat; /* Do not repeat the background image */
- /* Add a border for separation */
-  // z-index: 1000;
+  margin-top: 0;
+  align-items: stretch;
+
 }
 
 header {
