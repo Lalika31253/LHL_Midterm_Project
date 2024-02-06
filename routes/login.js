@@ -5,11 +5,6 @@ const { loginUsers } = require('../db/queries/login_queries');
 
 router.get('/', (req, res) => {
   const userData = res.locals.user;
-<<<<<<< HEAD
-  console.log(userData);
-
-=======
->>>>>>> master
   res.render('login_form', { user: userData});
 });
 
@@ -42,3 +37,4 @@ router.post('/', (req, res) => {
 
 module.exports = router;
 
+  
