@@ -1,6 +1,6 @@
 -- Products table seeds
 INSERT INTO products (title, description, price, photo_url_1, photo_url_2, photo_url_3, stock_quantity) 
-VALUES ('Double bed', 'When you want a bedroom that makes a bold statement, this king bed with storage is for you.', 85000, '/documents/bed/Bed_1.jpg', '/documents/bed/Bed_.jpg', '/documents/bed/Bed_3.jpg', 3);
+VALUES ('Double bed', 'When you want a bedroom that makes a bold statement, this king bed with storage is for you.', 85000, '/documents/bed/Bed_1.jpg', '/documents/bed/Bed_2.jpg', '/documents/bed/Bed_3.jpg', 3);
 
 INSERT INTO products (title, description, price, photo_url_1, photo_url_2, photo_url_3, stock_quantity) 
 VALUES ('Desk chair', 'The chair features a mesh back and fabric seat with fixed arms for extra comfort. With a black mesh back, this chair pairs perfectly with any space.', 18000, '/documents/chair/Chair_1.jpg', '/documents/chair/Chair_2.jpg', '/documents/chair/Chair_3.jpg', 5);
