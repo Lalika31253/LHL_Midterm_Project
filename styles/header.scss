@@ -1,10 +1,11 @@
-.header-section {
-  background-color: white;
-  width: 100%;
-  top: 0;
-}
-
 header {
   width: 100%;
-  top: 0;
+  margin-top: 0;
 }
+
+.header-section {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+}
+

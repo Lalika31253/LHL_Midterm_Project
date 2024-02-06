@@ -3,7 +3,7 @@
 const db = require('../connection');
 
 const getPriceFilter = options => {
-  // Basic validation (You can make this more robust)
+  // Basic validation
   if (!options.minimum_price || !options.maximum_price) {
     return Promise.reject(new Error('Missing minimum or maximum price options'));
   }

@@ -22,14 +22,18 @@
 <body>
   <%- include('header') %>
 
-  <h1>Send message</h1>
+  <h1>Send message <span id="user"></span></h1>
 
   <form id="send-message-form">
     <div class="send-message__field-wrapper">
       <textarea name="" id="" cols="30" rows="10"></textarea>
     </div>
-
+    <button type="submit" class="send-message">Send</button>
   </form>
+
+  <div> Inbox
+  <div id="messages-received"></div>
+  </div>
 
   <script defer src="/scripts/message.js"></script>
 </body>
