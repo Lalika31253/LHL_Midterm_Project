@@ -58,3 +58,16 @@ small {
 .fa-heart:hover {
   color: red;
 }
+
+body h1, h2, h3 {
+  color: #333; /* Change text color to dark gray */
+  font-family: Arial, sans-serif; /* Specify font family */
+  text-align: center; /* Center align the text */
+}
+
+body h1, h2, h3 {
+  color: #333;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 30px;
+}

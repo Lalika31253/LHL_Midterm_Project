@@ -27,12 +27,13 @@
 <body>
   <%- include('header', { user: user ? { is_admin: user.is_admin } : null }) %>
 
-  <h1>Send message <span id="user"></span></h1>
+  <h1>Send message<span id="user"></span></h1>
 
   <form id="send-message-form">
     <div class="send-message__field-wrapper">
-      <textarea name="" id="" cols="30" rows="10" style='background-color:rgb(223, 218, 218)'></textarea>
+      <textarea name="" id="" cols="30" rows="10" class="form-control" style='background-color:rgb(212, 205, 205)'></textarea>
     </div>
+    <br>
     <button type="submit" class="send-message btn btn-dark mb-3">Send</button>
   </form>
 
@@ -51,9 +52,9 @@
   <script defer src="/scripts/message.js"></script>
 
      <!-- Bootstrap JS -->
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-     crossorigin="anonymous"></script>
+     crossorigin="anonymous"></script> -->
    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
      integrity="sha384-u8z6wCDO/iPduYNySEGAhJdkZLfReQofMEJ9b98loF4bRs35nusD2PrEAe82LJbP"
      crossorigin="anonymous"></script>

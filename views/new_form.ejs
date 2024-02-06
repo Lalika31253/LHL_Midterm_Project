@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Form</title>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
@@ -25,63 +26,64 @@
 <body>
   <%- include('header', { user: user ? { is_admin: user.is_admin } : null }) %>
 
-  <h1>Add Product</h1>
+
+  <h1>New Form</h1>
 
   <form action="/add" method="post" id="new-product-form" class="new-product-form">
-    <div class="new-product-form__field-wrapper mb-3" ;>
-      <label for="new-product-form__title" class="form-label";>Title</label>
+    <div class="new-product-form__field-wrapper">
+      <label for="new-product-form__title" class="form-label">Title</label>
       <input type="text" name="title" placeholder="Title" id="new-product-form__title" class="form-control" style='background-color:rgb(239, 236, 236)'>
     </div>
 
-    <div class="new-product-form__field-wrapper mb-3">
+    <div class="new-product-form__field-wrapper">
       <label for="new-product-form__description" class="form-label">Description</label>
-      <textarea placeholder="Description" name="description" id="new-product-form__description" class="form-control" cols="30" rows="5" style='background-color:rgb(239, 236, 236)'></textarea>
+      <textarea placeholder="Description" name="description" id="new-product-form__description" cols="30" rows="" class="form-control" style='background-color:rgb(239, 236, 236)'></textarea>
     </div>
 
-    <div class="new-product-form__field-wrapper mb-3">
+    <div class="new-product-form__field-wrapper">
       <label for="new-product-form__price" class="form-label">Price</label>
       <input placeholder="Price" type="number" name="price" id="new-product-form__price" class="form-control" style='background-color:rgb(239, 236, 236)'>
     </div>
 
-    <div class="new-product-form__field-wrapper mb-3">
+    <div class="new-product-form__field-wrapper">
       <label for="new-product-form__photo_url_1" class="form-label">Image</label>
       <input placeholder="Furniture Image" type="text" name="photo_url_1" id="new-product-form__photo_url_1" class="form-control" style='background-color:rgb(239, 236, 236)'>
     </div>
 
-    <div class="new-product-form__field- mb-3">
+    <div class="new-product-form__field-wrapper">
       <label for="new-product-form__photo_url_2" class="form-label">Image</label>
       <input placeholder="Furniture Image" type="text" name="photo_url_2" id="new-product-form__photo_url_2" class="form-control" style='background-color:rgb(239, 236, 236)'>
     </div>
 
-    <div class="new-product-form__field-wrapper mb-3">
+    <div class="new-product-form__field-wrapper">
       <label for="new-product-form__photo_url_3" class="form-label">Image</label>
       <input placeholder="Furniture Image" type="text" name="photo_url_3" id="new-product-form__photo_url_3" class="form-control" style='background-color:rgb(239, 236, 236)'>
     </div>
 
-    <div class="new-product-form__field-wrapper mb-3">
+    <div class="new-product-form__field-wrapper">
       <label for="new-product-form__stock_quantity" class="form-label">Quantity</label>
       <input placeholder="Quantity" type="number" name="stock_quantity" id="new-product-form__stock_quantity" class="form-control" style='background-color:rgb(239, 236, 236)'/>
     </div>
 
-    <div class="new-product-form__field-wrapper mb-3">
+    <div class="new-product-form__field-wrapper">
       <button type="submit" class="add-button btn btn-dark mb-3">Add</button>
 
     </div>
 
   </form>
 
-   <!-- Bootstrap JS -->
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-   crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-   integrity="sha384-u8z6wCDO/iPduYNySEGAhJdkZLfReQofMEJ9b98loF4bRs35nusD2PrEAe82LJbP"
-   crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-   integrity="sha384-rE5tIc/Z9b4HeL6lZ5bjx6GcSd3JKLjo1fKjHAUeOLByE4K9NzFDrsSBDl6e9Zz4"
-   crossorigin="anonymous"></script>
-
   <script src="scripts/new_product_form.js"></script>
+     <!-- Bootstrap JS -->
+     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+     crossorigin="anonymous"></script> -->
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+     integrity="sha384-u8z6wCDO/iPduYNySEGAhJdkZLfReQofMEJ9b98loF4bRs35nusD2PrEAe82LJbP"
+     crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+     integrity="sha384-rE5tIc/Z9b4HeL6lZ5bjx6GcSd3JKLjo1fKjHAUeOLByE4K9NzFDrsSBDl6e9Zz4"
+     crossorigin="anonymous"></script>
+</body>
 </body>
 </html>
 
