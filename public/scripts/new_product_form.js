@@ -26,7 +26,3 @@ $(document).ready(function () {
 });
 
 
-  // - That form will make a query post request to the back end
-  // - ie $.post('localhost:8000/api/add')
-  // - backend will have app.post('/api/add')
-
