@@ -77,4 +77,4 @@ const deleteProduct = (options) => {
   });
 };
 
-module.exports = { addProduct, deleteProduct };
+module.exports = { addProduct, deleteProduct, getProduct };

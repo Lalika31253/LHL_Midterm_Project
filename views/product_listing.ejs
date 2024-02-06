@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Form</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/get_product_id.js"></script>
+</head>
+<body>
+  <%- include('header', { user: user ? { is_admin: user.is_admin } : null }) %>
+
+  <h2>Featured items</h2>
+
+  <% if (user && user.is_admin) { %>
+    <div id="product-container">
+      <form method="GET" action="/product/<%= product.id %>">
+        <article class="" data-product-id="<%= product.id %>">
+          <section class="featured-item__preview-image">
+            <img src="<%- product.photo_url_1 %>" alt="featured-furniture" style="width: 200px; border:solid;">
+          </section>
+          <section class="featured-item__preview-image">
+            <img src="<%- product.photo_url_2 %>" alt="featured-furniture" style="width: 200px; border:solid;">
+          </section>
+          <section class="featured-item__preview-image">
+            <img src="<%- product.photo_url_3 %>" alt="featured-furniture" style="width: 200px; border:solid;">
+          </section>
+          <section class="featured-item__details">
+            <h3 class="featured-item__title"><%- product.title %></h3>
+            <footer class="featured-item__footer">
+              <div class="featured-item__rating">Quantity in stock: <%- product.stock_quantity %></div>
+              <br>
+              <div class="featured-item__price">Price: $<%- product.price/100 %></div>
+              <br>
+              <div class="featured-item__description">Description: <%- product.description %></div>
+              <br>
+              <div class="featured-item__message">Available:
+                <% if (product.is_sold === false) { %>
+                  <span>Not sold</span>
+                <% } else { %>
+                  <span>SOLD</span>
+                <% } %>
+              </div>
+              <div class="featured-item__message"><a href="/message">Send message to user</a></div>
+              <br>
+              <div class="featured-item__favourite">Favourite <i class="fa-regular fa-heart"></i></div>
+              <form method="POST" action="/delete" class="delete_product">
+                <input type="hidden" name="itemId" value="<%= product.id %>">
+                <button type="submit" class="delete_button">Delete</button>
+              </form>
+            </footer>
+          </section>
+        </article>
+      </form>
+    </div>
+  <% } else { %>
+    <div id="product-container">
+      <form method="GET" action="/product/<%= product.id %>">
+        <article class="featured-item" data-product-id="<%= product.id %>">
+          <section class="featured-item__preview-image">
+            <img src="<%- product.photo_url_1 %>" alt="featured-furniture" style="width: 200px; border:solid;">
+          </section>
+          <section class="featured-item__preview-image">
+            <img src="<%- product.photo_url_2 %>" alt="featured-furniture" style="width: 200px; border:solid;">
+          </section>
+          <section class="featured-item__preview-image">
+            <img src="<%- product.photo_url_3 %>" alt="featured-furniture" style="width: 200px; border:solid;">
+          </section>
+        <section class="featured-item__details">
+          <h3 class="featured-item__title"><%- product.title %></h3>
+          <footer class="featured-item__footer">
+            <div class="featured-item__rating">Quantity in stock: <%- product.stock_quantity %></div>
+            <br>
+            <div class="featured-item__price">Price: $<%- product.price/100 %></div>
+            <br>
+            <div class="featured-item__description">Description: <%- product.description %></div>
+            <br>
+            <div class="featured-item__message">Available:
+              <% if (product.is_sold === false) { %>
+                <span>Not sold</span>
+              <% } else { %>
+                <span>SOLD</span>
+              <% } %>
+            </div>
+            <div class="featured-item__message"><a href="/message">Send message to user</a></div>
+            <br>
+            <div class="featured-item__favourite">Favourite <i class="fa-regular fa-heart"></i></div>
+            
+
+
+          </footer>
+        </section>
+      </article>
+      </form>
+    </div>
+  <% } %>
+  
+  <small>Copyright LHL OCT 16 COHORT</small>
+
+  <script>
+    $(document).ready(function () {
+      // Click handler for .featured-item
+      $(document).on('click', '.featured-item', function () {
+        const productId = $(this).data('product-id');
+        // Redirect to product details page
+        const productDetailsUrl = `/product/${productId}`;
+        window.location.href = productDetailsUrl;
+      });
+    });
+  </script>
+
+</body>
+
+</html>
