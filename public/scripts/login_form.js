@@ -14,6 +14,7 @@ $(document).ready(function () {
       data: formData,
       success: function (response) {
         console.log('success');
+        window.location.href = response.redirectUrl || '/';
       },
     error: function (error) {
       console.log(error);

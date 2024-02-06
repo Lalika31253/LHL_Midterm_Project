@@ -19,9 +19,10 @@ router.route('/')
       console.log('POST request to /api/add received!');
       try {
         const formData = req.body;
+        console.log('Form Data:', formData);  
         const newProduct = await addProduct(formData);
 
-        res.json({success: true, newProduct});
+        res.json({success: true, newProduct, redirectUrl: '/'});
       } catch (error) {
         console.log(error);
         res.status(500).json({success: false, error: 'Server error'});

@@ -2,9 +2,17 @@
   background-color: white;
   width: 100%;
   top: 0;
+  height: auto;
+  background-image: url('./public/documents/photo/your-home.jpg');
+  background-position: center;
 }
 
 header {
   width: 100%;
   top: 0;
+}
+
+.logo {
+  width: 100px; /* Adjust the width of the logo */
+  height: auto; /* Automatically adjust the height based on the width */
 }
