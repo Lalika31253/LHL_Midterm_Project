@@ -28,6 +28,9 @@ router.route('/')
   //     }
   //   });
 
-
+  //one is get
+//makes an api call and gives you a list of all the messages
+//second route that submits a message *post request for a message
+// perpetually ping with jquerry
 
 module.exports = router;
