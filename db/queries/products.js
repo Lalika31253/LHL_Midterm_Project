@@ -30,7 +30,7 @@ const addProduct = (options) => {
   const photo_url_1 = options.photo_url_1;
   const photo_url_2 = options.photo_url_2;
   const photo_url_3 = options.photo_url_3;
-  const quantity = options.stock_quantity
+  const stock_quantity = options.stock_quantity
   ;
 
 
@@ -41,7 +41,7 @@ const addProduct = (options) => {
     photo_url_1,
     photo_url_2,
     photo_url_3,
-    quantity
+    stock_quantity
   ];
 
   let queryString = `

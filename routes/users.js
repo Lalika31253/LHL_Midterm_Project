@@ -13,25 +13,21 @@ const { addProduct } = require('../db/queries/products');
 //route to handle add_product
 router.route('/')
   .get((req, res) => {
-    res.render('new_form');
+    const user = res.locals.user;
+    res.render('new_form', { user: user });
   })
   .post(async (req, res) => {
       console.log('POST request to /api/add received!');
       try {
         const formData = req.body;
+        console.log('Form Data:', formData);  
         const newProduct = await addProduct(formData);
 
-        res.json({success: true, newProduct});
+        res.json({success: true, newProduct, redirectUrl: '/'});
       } catch (error) {
         console.log(error);
         res.status(500).json({success: false, error: 'Server error'});
       }
     });
-
-
-router.route('/test')
-  .get((req, res) => {
-    res.render('test');
-  });
 
 module.exports = router;

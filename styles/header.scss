@@ -1,11 +1,31 @@
+.header-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  top: 0;
+  height: auto;
+  background-image: url('./public/documents/photo/your-home.jpg');
+  background-position: center;
+}
+
 header {
   width: 100%;
   margin-top: 0;
-}
-
-.header-section {
   background-color: white;
-  display: flex;
-  justify-content: space-around;
 }
 
+.logo {
+  width: 100px; /* Adjust the width of the logo */
+  height: auto; /* Automatically adjust the height based on the width */
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 3em;
+  border: solid;
+  margin-right: 50%;
+}
