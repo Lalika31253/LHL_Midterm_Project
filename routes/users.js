@@ -20,7 +20,7 @@ router.route('/')
       console.log('POST request to /api/add received!');
       try {
         const formData = req.body;
-        console.log('Form Data:', formData);  
+        console.log('Form Data:', formData); 
         const newProduct = await addProduct(formData);
 
         res.json({success: true, newProduct, redirectUrl: '/'});
