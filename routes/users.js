@@ -35,7 +35,7 @@ router.route('/')
     const user = res.locals.user;
     res.render('new_form', { user: user });
   })
-  .post(async (req, res) => {
+  .post(async(req, res) => {
     console.log('POST request to /api/add received!');
     try {
       const formData = req.body;
