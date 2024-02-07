@@ -31,11 +31,6 @@ app.use(
   })
 );
 app.use(express.static('public'));
-// app.use(cookieSession({
-//   name: 'Andrew',
-//   keys: ['secret keys'],
-//   maxAge: 24 * 60 * 60 * 1000
-// }));
 app.use(cookieParser('your secret key'));
 
 // Separated Routes for each Resource
@@ -46,8 +41,13 @@ const loginRoutes = require('./routes/login');
 const logoutRoutes = require('./routes/logout');
 const searchRoutes = require('./routes/search');
 const newProductForm = require('./routes/users');
+<<<<<<< HEAD
+const favoritesRoutes = require('./routes/favorites');
+
+=======
 const filterRoutes = require('./routes/filter');
 const messageRoutes = require('./routes/message');
+>>>>>>> master
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -59,7 +59,12 @@ app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
 app.use('/search', searchRoutes);
 app.use('/add', newProductForm);
+<<<<<<< HEAD
+app.use('/favorites', favoritesRoutes);
+
+=======
 app.use('/message', messageRoutes);
+>>>>>>> master
 
 // Note: mount other resources here, using the same pattern above
 
@@ -91,6 +96,13 @@ app.use((req, res, next) => {
   }
 });
 
+<<<<<<< HEAD
+  db.query(`SELECT * FROM products`)
+    .then(data => {
+    // console.log(data.rows);
+      res.render('index', { products: data.rows });
+    });
+=======
 
 
 app.get('/', (req, res) => {
@@ -114,6 +126,7 @@ app.get('/', (req, res) => {
         res.status(500).json({ error: error.message });
       });
   }
+>>>>>>> master
 });
 
 app.listen(PORT, () => {
