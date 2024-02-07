@@ -31,13 +31,15 @@ app.use(
   })
 );
 app.use(express.static('public'));
+
 // app.use(cookieSession({
 //   name: 'Andrew',
 //   keys: ['secret keys'],
 //   maxAge: 24 * 60 * 60 * 1000
 // }));
-// app.use(cookieParser('your secret key'));
-app.use(cookieParser());
+
+app.use(cookieParser('your secret key'));
+
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -47,6 +49,8 @@ const loginRoutes = require('./routes/login');
 const logoutRoutes = require('./routes/logout');
 const searchRoutes = require('./routes/search');
 const newProductForm = require('./routes/users');
+const favoritesRoutes = require('./routes/favorites');
+
 const filterRoutes = require('./routes/filter');
 const messageRoutes = require('./routes/message');
 
@@ -60,6 +64,8 @@ app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
 app.use('/search', searchRoutes);
 app.use('/add', newProductForm);
+app.use('/favorites', favoritesRoutes);
+
 app.use('/message', messageRoutes);
 
 // Note: mount other resources here, using the same pattern above
