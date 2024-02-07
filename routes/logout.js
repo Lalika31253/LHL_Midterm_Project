@@ -3,8 +3,9 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
   res.clearCookie('user_id');
-  // res.json({ message: 'Logout successful' });
-  res.redirect('/');
+  res.send('Logged out');
+  // res.redirect('/');
+  console.log('Logout successful');
 });
 
 module.exports = router;

@@ -30,7 +30,7 @@ router.route('/')
 
 
 //route to handle add_product
-router.route('/add')
+router.route('/')
   .get((req, res) => {
     res.render('new_form');
   })
