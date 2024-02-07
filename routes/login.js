@@ -4,11 +4,11 @@ const db = require('../db/connection');
 
 
 router.route('/')
-.get((req, res) => {
-  const userData = res.locals.user
-  
-  res.render('login_form', { user: userData});
-});
+  .get((req, res) => {
+    const userData = res.locals.user;
+
+    res.render('login_form', { user: userData});
+  });
 
 router.post('/', (req, res) => {
   const { email, password } = req.body;
@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
       }
 
       res.locals.user = user;
-      
+
       res.cookie('user_id', user.id, {maxAge: 24 * 60 * 60 * 1000});
       // res.json({ message: 'Login successful'});
       res.redirect('/'); //pas user object to the template
