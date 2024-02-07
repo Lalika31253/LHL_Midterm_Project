@@ -1,7 +1,6 @@
-$site-colour: rgb(181, 238, 249);
+$site-colour: rgb(249, 240, 181);
 $favourite-colour: red;
-$highlight-colour: rgba(104, 240, 245, 0.883);
-// $highlight-colour: rgba(222, 108, 26, 0.883);
+$highlight-colour: rgba(109, 250, 255, 0.883);
 
 body {
   display: flex;
@@ -14,9 +13,6 @@ body {
 
 .main-logo {
   color: rgb(223, 254, 255);
-  background: radial-gradient(#ffffff, #ffffff00, white);
-  padding: 30px;
-  border-radius: 100px;
   font-size: 6em;
   font-family:cursive;
   -webkit-text-stroke-width: 0.1px;
@@ -24,24 +20,10 @@ body {
   text-shadow: 0px 1px 4px #0e1a05;
 }
 
-.small-logo {
-  color: rgb(223, 254, 255);
-  background-color: white;
-  padding: 10px;
-  border-radius: 100px;
-  font-size: 3em;
-  font-family:cursive;
-  -webkit-text-stroke-width: 0.1px;
-  -webkit-text-stroke-color: $highlight-colour;
-  text-shadow: 0px 1px 4px #0e1a05;
-  cursor: pointer;
-}
-
-
 #product-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content:flex-start;
   width: 90%;
   flex-wrap: wrap;
 }
@@ -63,6 +45,12 @@ body {
   }
 }
 
+.nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: yellow;
+}
 
 small {
   margin-bottom: 200px;

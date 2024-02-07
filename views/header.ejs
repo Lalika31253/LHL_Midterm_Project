@@ -3,52 +3,64 @@
 </head>
 <header>
 
+
   <div class="header-section">
 
+    <div class="logo">
+      <span id="logo">
         <div class="logo">
-          <!-- You can use an <img> tag for your logo -->
-          <img src="../styles/images/photo-modified.png" alt="image">
-        </div>
-
-        <div class="small-logo">Furniture Seller!</div>
-
-        <div class="wrapper">
-          <div class="nav-buttons">
-            <div class="home-about-contact">
-              <a href="/" style="text-decoration: none;"> Home</a>
-              <!-- <a href="/about" style="text-decoration: none;">ABOUT US</a> -->
-
-              <!-- Admin/Seller authentication form -->
-
-              <% if (!user) { %>
-                <a href="/login" style="text-decoration: none;">Login</a>
-                <a href="/about" style="text-decoration: none;">About Us</a>
-                <% } %>
-
-                  <% if (user && user.is_admin) { %>
-
-                    <a href="/add" style="text-decoration: none;">Add</a>
-                    <form method="post" action="/logout">
-                      <h5 class="card-text"> Logged in as: <%= user.username %></h5>
-                      <a href="/logout" style="text-decoration: none;">Logout</a>
-                    </form>
-
-                    <% } else if (user) { %>
-                      <a href="/favorites" style="text-decoration: none;">Favourites</a>
-                      <a href="/message" style="text-decoration: none;">Inbox</a>
-                      <form method="post" action="/logout">
-                        <h5 class="card-text"> Logged in as: <%= user.username %></h5>
-                        <a href="/logout" style="text-decoration: none;">Logout</a>
-                      </form>
-
-                      <% } %>
-
-
-
-            </div>
-          </div>
-        </div>
+        <!-- You can use an <img> tag for your logo -->
+        <img src="/public/documents/images/image.jpg" alt="image">
+      <a href="/" style="text-decoration: none;"><b>Furniture</b> Seller</a>
     </div>
+
+    <div class="wrapper">
+
+      <div class="nav-buttons">
+        <div class="home-about-contact">
+          <a href="/" style="text-decoration: none;"> 🏠HOME</a>
+          <!-- <a href="/about" style="text-decoration: none;">ABOUT US</a> -->
+
+
+          <!-- Admin/Seller authentication form -->
+
+          <% if (!user) { %>
+            <a href="/login" style="text-decoration: none;">Login</a>
+            <a href="/about" style="text-decoration: none;">About Us</a>
+            <% } %>
+
+          <% if (user && user.is_admin) { %>
+
+            <br>
+            <a href="/add" style="text-decoration: none;">Add</a>
+            <br>
+            <a href="/message" style="text-decoration: none;">Inbox</a>
+              <form method="post" action="/logout">
+                <h5 class="card-text"> Logged in as: <%= user.username %></h5>
+                  <a href="/logout" style="text-decoration: none;">Logout</a>
+                </h5>
+              </form>
+
+            <% } else if (user) { %>
+              <a href="/favorites" style="text-decoration: none;">Favourites</a>
+              <a href="/message" style="text-decoration: none;">Inbox</a>
+              <form method="post" action="/logout">
+                <h5 class="card-text"> Logged in as: <%= user.username %></h5>
+                  <a href="/logout" style="text-decoration: none;">Logout</a>
+                </h5>
+              </form>
+
+              <% } %>
+
+
+
+        </div>
+      </div>
+
+      <!-- Admin/Seller authentication form -->
+
+    </div>
+
   </div>
 
 </header>
