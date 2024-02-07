@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/', (req, res) => {
+// Logout route
+router.route('/').get((req, res) => {
+  // Clear the user_id cookie
   res.clearCookie('user_id');
-  res.send('Logged out');
-  // res.redirect('/');
-  console.log('Logout successful');
+  // Redirect the user to the login page or any other appropriate page
+  res.redirect('/login');
 });
+
 
 module.exports = router;

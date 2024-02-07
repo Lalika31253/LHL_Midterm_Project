@@ -5,5 +5,5 @@ CREATE TABLE users (
   username varchar(200) NOT NULL,
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  is_admin BOOLEAN
+  is_admin BOOLEAN DEFAULT false
 );

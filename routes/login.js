@@ -1,35 +1,43 @@
 const express = require('express');
 const router = express.Router();
-const { loginUsers } = require('../db/queries/login_queries');
+const db = require('../db/connection');
 
-//
+
+router.route('/')
+  .get((req, res) => {
+    const userData = res.locals.user;
+
+    res.render('login_form', { user: userData});
+  });
+
 router.post('/', (req, res) => {
   const { email, password } = req.body;
 
-  loginUsers(email, password)
-    .then(user => {
+  const query = `SELECT * FROM users WHERE email = $1`;
+  console.log(query);
+  db.query(query, [email])
+    .then(data => {
+      const user = data.rows[0];
+      // console.log(user);
+      // console.log(req.body);
       if (!user) {
-        return res.status(401).json({ error: 'Invalid email or password' });
+
+        return res.status(401).json({ error: 'Invalid username or password' });
       }
 
       if (password !== user.password) {
-        return res.status(401).json({ error: 'Invalid email or password' });
+        return res.status(401).json({ error: 'Invalid username or password' });
       }
 
+      res.locals.user = user;
+
       res.cookie('user_id', user.id, {maxAge: 24 * 60 * 60 * 1000});
-      res.json({ message: 'Login successful', user });
-      console.log('Successful login');
-      console.log('user.id:', user.id);
-      console.log('Req.cookies' + JSON.stringify(req.cookies.user_id));
-      // res.redirect('/');
+      // res.json({ message: 'Login successful'});
+      res.redirect('/'); //pas user object to the template
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
     });
-});
-
-router.get('/', (req, res) => {
-  res.render('login_form');
 });
 
 module.exports = router;

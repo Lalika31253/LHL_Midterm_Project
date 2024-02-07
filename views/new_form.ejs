@@ -7,24 +7,29 @@
   <title>New Form</title>
 
 
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
-  
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/new-product-form.js"></script>
 
 </head>
 <body>
-  <%- include('header') %>
+  <%- include('header', { user: user }) %>
 
   <h1>New Form</h1>
 
-  <form action="/api/add" method="post" id="new-product-form" class="new-product-form">
+  <form action="/add" method="post" id="new-product-form" class="new-product-form">
     <div class="new-product-form__field-wrapper">
       <label for="new-product-form__title">Title</label>
       <input type="text" name="title" placeholder="Title" id="new-product-form__title">
     </div>
-    
+
     <div class="new-product-form__field-wrapper">
       <label for="new-product-form__description">Description</label>
       <textarea placeholder="Description" name="description" id="new-product-form__description" cols="30" rows="10"></textarea>
@@ -57,12 +62,12 @@
 
     <div class="new-product-form__field-wrapper">
       <button type="submit" class="add-button">Add</button>
-     
+
     </div>
-    
+
   </form>
 
-  <script src="scripts/new-product-form.js"></script>
+  <script src="scripts/new_product_form.js"></script>
 </body>
 </html>
 
