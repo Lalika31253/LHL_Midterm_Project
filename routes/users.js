@@ -10,6 +10,25 @@ const router = express.Router();
 const db = require('../db/connection');
 const { addProduct } = require('../db/queries/products');
 
+router.route('/')
+  .get((req, res) => {
+    res.render('new_form');
+  });
+
+// .post(async (req, res) => {
+//   console.log('POST request to /api/add received!');
+//   try {
+//     const formData = req.body;
+//     const newProduct = await addProduct(formData);
+
+//     res.json({success: true, newProduct});
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({success: false, error: 'Server error'});
+//   }
+// });
+
+
 //route to handle add_product
 router.route('/')
   .get((req, res) => {
@@ -17,17 +36,17 @@ router.route('/')
     res.render('new_form', { user: user });
   })
   .post(async (req, res) => {
-      console.log('POST request to /api/add received!');
-      try {
-        const formData = req.body;
-        console.log('Form Data:', formData); 
-        const newProduct = await addProduct(formData);
+    console.log('POST request to /api/add received!');
+    try {
+      const formData = req.body;
+      console.log('Form Data:', formData);
+      const newProduct = await addProduct(formData);
 
-        res.json({success: true, newProduct, redirectUrl: '/'});
-      } catch (error) {
-        console.log(error);
-        res.status(500).json({success: false, error: 'Server error'});
-      }
-    });
+      res.json({success: true, newProduct, redirectUrl: '/'});
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({success: false, error: 'Server error'});
+    }
+  });
 
 module.exports = router;
