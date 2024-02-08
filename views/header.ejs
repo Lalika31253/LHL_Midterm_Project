@@ -1,64 +1,65 @@
 <!-- </header> -->
 
-</head>
 <header>
-
 
   <div class="header-section">
 
-    <div class="logo">
-      <span id="logo">
-        <div class="logo">
-        <!-- You can use an <img> tag for your logo -->
+    <nav class="wrapper">
 
-      <a href="/" style="text-decoration: none;"><b>Furniture</b> Seller</a>
-    </div>
+      <h1 class="main-logo">Furniture Seller</h1>
 
-    <div class="wrapper">
-
-      <div class="nav-buttons">
+      <nav class="nav-buttons">
         <div class="home-about-contact">
-          <a href="/" style="text-decoration: none;"> 🏠HOME</a>
-          <!-- <a href="/about" style="text-decoration: none;">ABOUT US</a> -->
-
+          <div class="header-element">
+            <a href="/" style="text-decoration: none;"> 🏠HOME</a>
+          </div>
 
           <!-- Admin/Seller authentication form -->
 
           <% if (!user) { %>
-            <a href="/login" style="text-decoration: none;">Login</a>
+            <div class="header-element">
+              <a href="/login" style="text-decoration: none;">LOGIN</a>
+            </div>
+
             <% } %>
 
-          <% if (user && user.is_admin) { %>
+              <% if (user && user.is_admin) { %>
 
-            <br>
-            <a href="/add" style="text-decoration: none;">Add</a>
-            <br>
-            <a href="/message" style="text-decoration: none;">Inbox</a>
-              <form method="post" action="/logout">
-                <h5 class="card-text"> Logged in as: <%= user.username %></h5>
-                  <a href="/logout" style="text-decoration: none;">Logout</a>
-                </h5>
-              </form>
+                <div class="header-element">
+                  <a href="/add" style="text-decoration: none;">ADD</a>
+                  </div>
+                <div class="header-element">
+                  <a href="/message" style="text-decoration: none;">INBOX</a>
+                  </div>
+                  <div class="header-element"><form method="post" action="/logout">
+                    <a href="/logout" style="text-decoration: none;">LOGOUT</a>
+                  </form>
+                  </div>
 
-            <% } else if (user) { %>
-              <a href="/favorites" style="text-decoration: none;">Favourites</a>
-              <a href="/message" style="text-decoration: none;">Inbox</a>
-              <form method="post" action="/logout">
-                <h5 class="card-text"> Logged in as: <%= user.username %></h5>
-                  <a href="/logout" style="text-decoration: none;">Logout</a>
-                </h5>
-              </form>
-
-              <% } %>
+                  <nav class="log-info"><h5 class="card-text"> Logged in as: <%= user.username %></h5></nav>
 
 
+                <% } else if (user) { %>
+
+                  <div class="header-element">
+                    <a href="/favorites" style="text-decoration: none;">FAVORITES</a>
+                    </div>
+                    <div class="header-element">
+                      <a href="/message" style="text-decoration: none;">INBOX</a>
+                      </div>
+                    <div class="header-element">
+                      <form method="post" action="/logout">
+                        <a href="/logout" style="text-decoration: none;">LOGOUT</a>
+                      </form>
+                      </div>
+
+                      <nav class="log-info"><h5 class="card-text"> Logged in as: <%= user.username %></h5></nav>
+
+                  <% } %>
 
         </div>
-      </div>
-
-      <!-- Admin/Seller authentication form -->
-
-    </div>
+      </nav>
+    </nav>
 
   </div>
 

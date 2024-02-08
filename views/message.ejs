@@ -17,11 +17,12 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/message.js"></script>
 
 
 </head>
 <body>
-  <%- include('header', { user: user }) %>
+  <%- include('header', { user: user ? { is_admin: user.is_admin } : null }) %>
 
   <h1>Send message <span id="user"></span></h1>
 

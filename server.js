@@ -31,7 +31,15 @@ app.use(
   })
 );
 app.use(express.static('public'));
+
+// app.use(cookieSession({
+//   name: 'Andrew',
+//   keys: ['secret keys'],
+//   maxAge: 24 * 60 * 60 * 1000
+// }));
+
 app.use(cookieParser('your secret key'));
+
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -46,6 +54,7 @@ const favoritesRoutes = require('./routes/favorites');
 const filterRoutes = require('./routes/filter');
 const messageRoutes = require('./routes/message');
 const messageApiRoutes = require('./routes/message');
+const deleteRoutes = require('./routes/delete');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -62,6 +71,7 @@ app.use('/favorites', favoritesRoutes);
 
 app.use('/message', messageRoutes);
 app.use('/api/message', messageApiRoutes);
+app.use('/delete', deleteRoutes);
 
 // Note: mount other resources here, using the same pattern above
 
@@ -81,6 +91,7 @@ app.use((req, res, next) => {
         if (user) {
           // If the user exists, set it in res.locals
           res.locals.user = user;
+          console.log(res.locals.user);
         }
         next();
       })

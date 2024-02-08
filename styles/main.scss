@@ -1,6 +1,6 @@
 $site-colour: rgb(249, 240, 181);
 $favourite-colour: red;
-$highlight-colour: rgba(109, 250, 255, 0.883);
+$highlight-colour: rgba(184, 140, 132, 0.883);
 
 body {
   display: flex;
@@ -8,17 +8,20 @@ body {
   justify-content: center;
   align-items: center;
   background-color: $site-colour;
+  // background-color: #0000003d;
   background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+  min-height: 100%;
+  width: 100%;
 }
 
-.main-logo {
-  color: rgb(223, 254, 255);
-  font-size: 6em;
-  font-family:cursive;
-  -webkit-text-stroke-width: 0.1px;
-  -webkit-text-stroke-color: $highlight-colour;
-  text-shadow: 0px 1px 4px #0e1a05;
-}
+// .main-logo {
+//   color: rgb(223, 254, 255);
+//   font-size: 6em;
+//   font-family:cursive;
+//   -webkit-text-stroke-width: 0.1px;
+//   -webkit-text-stroke-color: $highlight-colour;
+//   text-shadow: 0px 1px 4px #0e1a05;
+// }
 
 #product-container {
   display: flex;
@@ -43,6 +46,10 @@ body {
   .featured-item__title {
     font-size: 175%;
   }
+}
+
+.featured-item:hover {
+    box-shadow: 2px 2px 2px 1px $highlight-colour;
 }
 
 .nav {
