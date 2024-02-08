@@ -28,10 +28,8 @@ router.post('/', (req, res) => {
   db.query(userCheckQuery, [userId])
     .then(data => {
       if (data.rows.length === 0) {
-        // No user found with the provided userId, treat as unauthorized
         return res.status(401).json({ error: 'Unauthorized. Invalid user ID.' });
       }
-      // User is validated, proceed with adding to favorites
       const { productId } = req.body;
       const query = `INSERT INTO favorites (user_id, product_id) VALUES ($1, $2)`;
       return db.query(query, [userId, productId]);
