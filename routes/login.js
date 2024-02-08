@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
 
   loginUsers(email, password)
     .then(user => {
-      console.log(user);
+      console.log('User is' + JSON.stringify(user));
       if (!user) {
 
         return res.status(401).json({ error: 'Invalid username or password' });

@@ -44,6 +44,7 @@ const newProductForm = require('./routes/users');
 const favoritesRoutes = require('./routes/favorites');
 const filterRoutes = require('./routes/filter');
 const messageRoutes = require('./routes/message');
+const markSoldRoutes = require('./routes/mark_as_sold');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -57,6 +58,7 @@ app.use('/search', searchRoutes);
 app.use('/add', newProductForm);
 app.use('/favorites', favoritesRoutes);
 app.use('/message', messageRoutes);
+app.use('/marksold', markSoldRoutes);
 
 // Note: mount other resources here, using the same pattern above
 
