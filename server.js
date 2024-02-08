@@ -55,6 +55,7 @@ const messageRoutes = require('./routes/message');
 const markSoldRoutes = require('./routes/mark_as_sold');
 const filterRoutes = require('./routes/filter');
 const messageRoutes = require('./routes/message');
+const messageApiRoutes = require('./routes/message');
 const deleteRoutes = require('./routes/delete');
 
 // Mount all resource routes
@@ -62,6 +63,7 @@ const deleteRoutes = require('./routes/delete');
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/api/filter', filterRoutes);
+
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
@@ -71,6 +73,7 @@ app.use('/favorites', favoritesRoutes);
 app.use('/message', messageRoutes);
 app.use('/marksold', markSoldRoutes);
 app.use('/message', messageRoutes);
+app.use('/api/message', messageApiRoutes);
 app.use('/delete', deleteRoutes);
 
 // Note: mount other resources here, using the same pattern above
