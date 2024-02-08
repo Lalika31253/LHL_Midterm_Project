@@ -11,6 +11,7 @@ const db = require('../db/connection');
 const { sendMessage } = require('../db/queries/message');
 
 router.route('/')
+<<<<<<< HEAD
 .get((req, res) => {
   console.log('message here',req.query); // For debugging
   const user = res.locals.user;
@@ -36,6 +37,23 @@ router.post(async (req, res) => {
     res.status(500).json({success: false, error: 'Server error'});
   }
 });
+=======
+  .get((req, res) => {
+    res.render('message');
+  });
+// .post(async (req, res) => {
+//     console.log('POST request to /api/add received!');
+//     try {
+//       const formData = req.body;
+//       const newProduct = await addProduct(formData);
+
+//       res.json({success: true, newProduct});
+//     } catch (error) {
+//       console.log(error);
+//       res.status(500).json({success: false, error: 'Server error'});
+//     }
+//   });
+>>>>>>> master
 
 
 
