@@ -24,11 +24,11 @@ router.post('/', (req, res) => {
         return res.status(401).json({ error: 'Invalid username or password' });
       }
 
-      res.locals.user = user;
-
       res.cookie('user_id', user.id, {maxAge: 24 * 60 * 60 * 1000});
-      res.json({ message: 'Login successful'});
-      // res.redirect('/'); //pas user object to the template
+
+      res.locals.user = user;
+      // res.json({ message: 'Login successful'});
+      res.redirect('/'); //pas user object to the template
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
@@ -36,3 +36,4 @@ router.post('/', (req, res) => {
 });
 
 module.exports = router;
+

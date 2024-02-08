@@ -14,13 +14,13 @@ const getProducts = () => {
 const getProduct = (id) => {
   const queryParams = [id];
   return db.query('SELECT * FROM products WHERE id =$1', queryParams)
-  .then(data => {
-    return data.rows;
-  })
-  .catch (error => {
-    console.log(error.message);
-    throw error;
-  });
+    .then(data => {
+      return data.rows;
+    })
+    .catch (error => {
+      console.log(error.message);
+      throw error;
+    });
 };
 
 const addProduct = (options) => {
@@ -58,4 +58,23 @@ const addProduct = (options) => {
   });
 };
 
-module.exports = { addProduct };
+
+
+const deleteProduct = (options) => {
+  const { id } = options;
+
+  let queryString = `
+  DELETE FROM products
+  WHERE id = $1
+  RETURNING *;`;
+
+  return db.query(queryString, [id])
+  .then(data => {
+    return data.rows;
+  })
+  .catch(error => {
+    console.log(error.message);
+  });
+};
+
+module.exports = { addProduct, deleteProduct };
