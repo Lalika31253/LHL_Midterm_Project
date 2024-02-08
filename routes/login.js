@@ -3,11 +3,10 @@ const router = express.Router();
 const db = require('../db/connection');
 
 
-router.route('/')
-.get((req, res) => {
+router.route('/').get((req, res) => {
   const userData = res.locals.user;
   console.log(userData);
-  
+
   res.render('login_form', { user: userData});
 });
 
