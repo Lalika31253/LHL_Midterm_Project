@@ -10,15 +10,15 @@ const sendMessage = function (options) {
     return Promise.reject(new Error('Missing message'));
   }
 
-  const query = `
-    INSERT INTO messages (sender_id, reciever_id, content, created_at )
-    VALUES($1, $2, $3, $4)
+  let query = `
+    INSERT INTO messages(content)
+    VALUES($1)
     RETURNING *;
     `;
 
-  const queryParams = [sender_id, reciever_id, message, created_at];
+  const queryParams = [options.content];
 
-  return db.query(query, [queryParams])
+  return db.query(query, queryParams)
     .then((res) => {
       return res.rows;
     })

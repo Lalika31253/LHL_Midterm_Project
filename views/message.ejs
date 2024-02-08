@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/message.css" />
 
 
   <script src="/vendor/jquery-3.0.0.js"></script>
@@ -31,9 +32,17 @@
     <button type="submit" class="send-message">Send</button>
   </form>
 
-  <div> Inbox
-  <div id="messages-received"></div>
-  </div>
+  <div id="messages-received">
+  <h2> Inbox </h2>
+    <% for (let id in messages) { %>
+      <article class="message-box">
+      <div>Message from user: <%- messages[id].sender_id %></div>
+      <p><%- messages[id].content %></p>
+      <div>Sent at <%- messages[id].created_at %></div>
+
+      </article>
+      <% } %>
+    </div>
 
   <script defer src="/scripts/message.js"></script>
 </body>

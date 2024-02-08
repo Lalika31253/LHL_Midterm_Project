@@ -45,12 +45,14 @@ const favoritesRoutes = require('./routes/favorites');
 
 const filterRoutes = require('./routes/filter');
 const messageRoutes = require('./routes/message');
+const messageApiRoutes = require('./routes/message');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
 app.use('/api/filter', filterRoutes);
+
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
@@ -59,6 +61,7 @@ app.use('/add', newProductForm);
 app.use('/favorites', favoritesRoutes);
 
 app.use('/message', messageRoutes);
+app.use('/api/message', messageApiRoutes);
 
 // Note: mount other resources here, using the same pattern above
 

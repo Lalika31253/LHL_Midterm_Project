@@ -16,6 +16,7 @@ $(document).ready(function () {
       data: formData,
       success: function (response) {
         console.log('success');
+        window.location.href = response.redirectUrl || '/message';
       },
     error: function (error) {
       console.log(error);
