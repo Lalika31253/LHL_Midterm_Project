@@ -14,19 +14,19 @@ const db = require('../db/connection');
 router.route('/')
   .get((req, res) => {
     res.render('message');
-  })
-  // .post(async (req, res) => {
-  //     console.log('POST request to /api/add received!');
-  //     try {
-  //       const formData = req.body;
-  //       const newProduct = await addProduct(formData);
+  });
+// .post(async (req, res) => {
+//     console.log('POST request to /api/add received!');
+//     try {
+//       const formData = req.body;
+//       const newProduct = await addProduct(formData);
 
-  //       res.json({success: true, newProduct});
-  //     } catch (error) {
-  //       console.log(error);
-  //       res.status(500).json({success: false, error: 'Server error'});
-  //     }
-  //   });
+//       res.json({success: true, newProduct});
+//     } catch (error) {
+//       console.log(error);
+//       res.status(500).json({success: false, error: 'Server error'});
+//     }
+//   });
 
 
 
