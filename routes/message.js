@@ -8,7 +8,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
-const { sendMessage } = require('../db/queries/products');
+const { sendMessage } = require('../db/queries/message');
 
 router.route('/')
 .get((req, res) => {
@@ -28,7 +28,7 @@ router.post(async (req, res) => {
   try {
     const formData = req.body;
     console.log('Form Data:', formData);
-    const newProduct = await sendMessage(formData);
+    const newMessage = await sendMessage(formData);
 
     res.json({success: true, newMessage, redirectUrl: '/message'});
   } catch (error) {

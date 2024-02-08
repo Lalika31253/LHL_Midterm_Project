@@ -7,7 +7,7 @@ router.route('/')
 .get((req, res) => {
   const userData = res.locals.user;
   console.log(userData);
-  
+
   res.render('login_form', { user: userData});
 });
 
