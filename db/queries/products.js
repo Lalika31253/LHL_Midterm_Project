@@ -59,7 +59,6 @@ const addProduct = (options) => {
 };
 
 
-
 const deleteProduct = (options) => {
   const { id } = options;
 

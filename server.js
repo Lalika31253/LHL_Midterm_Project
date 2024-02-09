@@ -113,17 +113,6 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   const user = res.locals.user;
-  // if (!user) {
-    // If user is not logged in
-  //   db.query(`SELECT * FROM products`)
-  //     .then(data => {
-  //       res.render('index', { products: data.rows, user });
-  //     })
-  //     .catch(error => {
-  //       res.status(500).json({ error: error.message });
-  //     });
-  // } else {
-    // If user is logged in
     db.query(`SELECT * FROM products`)
       .then(data => {
         res.render('index', { products: data.rows, user });
