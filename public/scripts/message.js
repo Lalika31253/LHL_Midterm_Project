@@ -7,7 +7,7 @@ $(document).ready(function () {
     // Serialize form data
     const formData = $(this).serialize();
 
-    console.log('hello', formData);
+    console.log('Form data: ', formData);
 
     // Send a POST request to the server
     $.ajax({

@@ -29,7 +29,8 @@
 
     <form id="send-message-form">
       <div class="send-message__field-wrapper">
-        <h1>Send message</h1>
+        <h1>Send message to email: <input type="email" name="email" placeholder="email"
+          id="email"></h1>
         <textarea name="content" id="send-message-text" cols="30" rows="10"></textarea>
       </div>
       <button type="submit" class="send-message">Send</button>
@@ -37,6 +38,9 @@
 
     <div id="messages-received">
       <h2> Inbox </h2>
+
+
+
       <% for (let id in messages) { %>
         <article class="message-box">
           <div>Message from user: <%- messages[id].sender_id %></div>

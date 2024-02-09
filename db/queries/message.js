@@ -1,23 +1,48 @@
 const db = require('../connection');
 
+// Take the email from the receiver_id input and match it to the receiver_id in the database
+//SELECT id FROM users WHERE email = $1;
+
+// const idToEmail = function(id) {
+//   return db.query(`
+//   SELECT email FROM users WHERE id = ${id}
+//   `);
+// }
+
+// Turn user email into id number
+
+const emailToId = function(email) {
+  let query = `
+  SELECT id FROM users WHERE email = $1;
+  `;
+
+  const queryParams = [email];
+
+  return db.query(query, queryParams)
+  .then((res) => {
+    return res.rows;
+  })
+  .catch((err) => {
+    throw err;
+  });
+}
+
 // Send a message
 
-const sendMessage = function (options) {
-  // Logging the content to make sure it's what we expect
-  console.log(options.content);
+const sendMessage = function (id, receiver, content) {
 
   // Basic validation
-  if (!options.content) {
+  if (!content) {
     return Promise.reject(new Error('Missing message'));
   }
 
   let query = `
-    INSERT INTO messages(content)
-    VALUES($1)
+    INSERT INTO messages(sender_id, receiver_id, content)
+    VALUES($1, $2, $3)
     RETURNING *;
   `;
 
-  const queryParams = [options.content];
+  const queryParams = [id, receiver, content];
 
   return db.query(query, queryParams)
     .then((res) => {
@@ -28,36 +53,4 @@ const sendMessage = function (options) {
     });
 }
 
-module.exports = { sendMessage };
-
-
-// const db = require('../connection');
-
-// // Send a message
-// const sendMessage = function (options) {
-//   // Logging the options to make sure it's what we expect
-//   console.log(options);
-
-//   // Basic validation for message content and IDs
-//   if (!options.content || !options.sender_id || !options.receiver_id) {
-//     return Promise.reject(new Error('Missing required message fields'));
-//   }
-
-//   let query = `
-//     INSERT INTO messages (sender_id, receiver_id, content, created_at)
-//     VALUES ($1, $2, $3, NOW()) RETURNING *;
-//   `;
-
-//   // Including sender_id and receiver_id in queryParams
-//   const queryParams = [options.sender_id, options.receiver_id, options.content];
-
-//   return db.query(query, queryParams)
-//     .then((res) => {
-//       return res.rows;
-//     })
-//     .catch((err) => {
-//       throw err;
-//     });
-// }
-
-// module.exports = { sendMessage };
+module.exports = { sendMessage, emailToId };

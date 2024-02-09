@@ -107,6 +107,7 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   const user = res.locals.user;
+  console.log(user);
     db.query(`SELECT * FROM products`)
       .then(data => {
         res.render('index', { products: data.rows, user });
@@ -114,7 +115,6 @@ app.get('/', (req, res) => {
       .catch(error => {
         res.status(500).json({ error: error.message });
       });
-  // }
 });
 
 app.listen(PORT, () => {
