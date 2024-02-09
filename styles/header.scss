@@ -25,10 +25,6 @@ body, header {
   margin: 0;
   padding: 0;
 }
-// .logo {
-//   width: 100px; /* Adjust the width of the logo */
-//   height: auto; /* Automatically adjust the height based on the width */
-// }
 
 .wrapper {
   // display: flex;
@@ -92,19 +88,6 @@ body, header {
   flex-direction: row;
   font-size: 20px;
 }
-
-// .main-logo {
-//   display: flex;
-//   width: 35%;
-//   color: rgb(223, 254, 255);
-//   font-size: 2em;
-//   font-family:cursive;
-//   -webkit-text-stroke-width: 0.1px;
-//   -webkit-text-stroke-color: $highlight-colour;
-//   text-shadow: 0px 1px 4px #0e1a05;
-//   flex-direction: column;
-//   font-size: 2em;
-// }
 
 .main-logo {
   padding-right: 100px;
