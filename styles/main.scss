@@ -1,13 +1,12 @@
 $site-colour: rgb(249, 240, 181);
 $favourite-colour: red;
-$highlight-colour: rgba(109, 250, 255, 0.883);
+$highlight-colour: rgba(184, 140, 132, 0.883);
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   background-color: $site-colour;
   // background-color: #0000003d;
   background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
@@ -49,6 +48,10 @@ body {
   }
 }
 
+.featured-item:hover {
+    box-shadow: 2px 2px 2px 1px $highlight-colour;
+}
+
 .nav {
   display: flex;
   justify-content: space-around;
@@ -63,4 +66,3 @@ small {
 .fa-heart:hover {
   color: red;
 }
-
