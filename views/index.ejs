@@ -23,6 +23,7 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <script defer src="/scripts/delete.js"></script>
+  <script defer src="scripts/get_product_id.js"></script>
 </head>
 
 <body>
@@ -58,7 +59,7 @@
 
         <% for (let id in products) { %>
 
-          <article class="featured-item">
+          <article class="featured-item" data-product-id="<%= products[id].id %>">
             <section class="featured-item__preview-image">
               <img src="<%- products[id].photo_url_1 %>" alt="featured-furniture" style="width: 200px; border:solid;">
             </section>
