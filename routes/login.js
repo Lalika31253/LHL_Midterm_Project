@@ -1,26 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db/connection');
+const { loginUsers } = require('../db/queries/login_queries');
 
 
-router.route('/')
-.get((req, res) => {
+router.get('/', (req, res) => {
   const userData = res.locals.user;
+<<<<<<< HEAD
   console.log(userData);
-  
+
+=======
+>>>>>>> master
   res.render('login_form', { user: userData});
 });
+
 
 router.post('/', (req, res) => {
   const { email, password } = req.body;
 
-  const query = `SELECT * FROM users WHERE email = $1`;
-  console.log(query);
-  db.query(query, [email])
-    .then(data => {
-      const user = data.rows[0];
-      // console.log(user);
-      // console.log(req.body);
+  loginUsers(email, password)
+    .then(user => {
+      console.log('User is' + JSON.stringify(user));
       if (!user) {
 
         return res.status(401).json({ error: 'Invalid username or password' });
