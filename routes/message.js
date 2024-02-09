@@ -1,9 +1,9 @@
 /*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into /users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
+* All routes for Users are defined here
+* Since this file is loaded in server.js into /users,
+*   these routes are mounted onto /users
+* See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
+*/
 
 const express = require('express');
 const router = express.Router();
@@ -31,17 +31,17 @@ router.route('/')
     console.log('Form Data:', formData);
     const newMessage = await sendMessage(formData);
 
-    res.json({success: true, newMessage, redirectUrl: '/message'});
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({success: false, error: 'Server error'});
-  }
+   res.json({success: true, newMessage, redirectUrl: '/message'});
+ } catch (error) {
+   console.log(error);
+   res.status(500).json({success: false, error: 'Server error'});
+ }
 });
 
 module.exports = router;
 
 
-  //one is get
+ //one is get
 //makes an api call and gives you a list of all the messages
 //second route that submits a message *post request for a message
 // perpetually ping with jquerry

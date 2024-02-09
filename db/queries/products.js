@@ -59,7 +59,6 @@ const addProduct = (options) => {
 };
 
 
-
 const deleteProduct = (options) => {
   const { id } = options;
 
@@ -77,4 +76,4 @@ const deleteProduct = (options) => {
   });
 };
 
-module.exports = { addProduct, deleteProduct };
+module.exports = { addProduct, deleteProduct, getProduct };
