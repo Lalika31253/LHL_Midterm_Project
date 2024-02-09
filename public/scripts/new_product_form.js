@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-  $('#new-product-form').on('submit', function (event) {
+  $('#new-product-form').submit (function (event) {
     event.preventDefault();
     console.log('Form submitted!');
 

@@ -8,9 +8,15 @@
   top: 0;
   height: 250px;
   // position: fixed;
+  
   background-image: url('https://images.squarespace-cdn.com/content/v1/5a454ab9fe54efc3d3028316/1548301014484-MBSEJ7UB2CNKCTJUN97O/header+img.jpg?format=2500w');
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat; 
+
+
+  background-position: center;
+  background-size: cover; 
   background-repeat: no-repeat; 
   margin-top: 0;
   align-items: stretch;
@@ -54,7 +60,7 @@ body, header {
     align-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    
+
 }
 
 
@@ -86,7 +92,7 @@ body, header {
 
 .main-logo {
   padding-right: 100px;
-  color: #333333e6; 
+  color: #333333e6;
 }
 
 /* Remove margin from last element */

@@ -5,7 +5,6 @@ const router = express.Router();
 router.route('/').get((req, res) => {
   // Clear the user_id cookie
   res.clearCookie('user_id');
-  // Redirect the user to the login page or any other appropriate page
   res.redirect('/login');
 });
 
