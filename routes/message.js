@@ -11,9 +11,8 @@ const db = require('../db/connection');
 const { sendMessage } = require('../db/queries/message');
 
 router.route('/')
-<<<<<<< HEAD
 .get((req, res) => {
-  console.log('message here',req.query); // For debugging
+  console.log('get path'); // For debugging
   const user = res.locals.user;
   db.query('SELECT * FROM messages;')
     .then(messages => {
@@ -24,8 +23,9 @@ router.route('/')
     });
 })
 
-router.post(async (req, res) => {
-  console.log('POST request received!');
+router.route('/')
+.post(async (req, res) => {
+  // console.log('POST request received!', req.body);
   try {
     const formData = req.body;
     console.log('Form Data:', formData);
@@ -37,29 +37,11 @@ router.post(async (req, res) => {
     res.status(500).json({success: false, error: 'Server error'});
   }
 });
-=======
-  .get((req, res) => {
-    res.render('message');
-  });
-// .post(async (req, res) => {
-//     console.log('POST request to /api/add received!');
-//     try {
-//       const formData = req.body;
-//       const newProduct = await addProduct(formData);
 
-//       res.json({success: true, newProduct});
-//     } catch (error) {
-//       console.log(error);
-//       res.status(500).json({success: false, error: 'Server error'});
-//     }
-//   });
->>>>>>> master
-
+module.exports = router;
 
 
   //one is get
 //makes an api call and gives you a list of all the messages
 //second route that submits a message *post request for a message
 // perpetually ping with jquerry
-
-module.exports = router;

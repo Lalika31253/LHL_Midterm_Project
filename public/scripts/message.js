@@ -1,4 +1,4 @@
-// const { response } = require("express");
+
 
 $(document).ready(function () {
 
@@ -7,7 +7,7 @@ $(document).ready(function () {
     // Serialize form data
     const formData = $(this).serialize();
 
-    console.log(formData);
+    console.log('hello', formData);
 
     // Send a POST request to the server
     $.ajax({
@@ -19,16 +19,10 @@ $(document).ready(function () {
         window.location.href = response.redirectUrl || '/message';
       },
     error: function (error) {
-      console.log(error);
+      console.log('hi', error);
     }
     });
 
   });
 });
-
-  // $(document).ready(function() {
-  //   $(".send-message").on("click", function() {
-  //     window.location.href="/message";
-  //   });
-  // });
 
