@@ -50,6 +50,7 @@ const logoutRoutes = require('./routes/logout');
 const searchRoutes = require('./routes/search');
 const newProductForm = require('./routes/users');
 const favoritesRoutes = require('./routes/favorites');
+
 const filterRoutes = require('./routes/filter');
 const messageRoutes = require('./routes/message');
 const markSoldRoutes = require('./routes/mark_as_sold');
@@ -67,6 +68,7 @@ app.use('/logout', logoutRoutes);
 app.use('/search', searchRoutes);
 app.use('/add', newProductForm);
 app.use('/favorites', favoritesRoutes);
+
 app.use('/message', messageRoutes);
 app.use('/marksold', markSoldRoutes);
 app.use('/delete', deleteRoutes);
@@ -102,8 +104,6 @@ app.use((req, res, next) => {
     next();
   }
 });
-
-
 
 app.get('/', (req, res) => {
   const user = res.locals.user;
