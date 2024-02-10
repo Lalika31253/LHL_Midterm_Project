@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
 
-  $('#send-message-form').on('submit', function (event) {
+  $('#send-message-form').off('submit').on('submit', function (event) {
     event.preventDefault();
     // Serialize form data
     const formData = $(this).serialize();
@@ -19,7 +19,7 @@ $(document).ready(function () {
         window.location.href = response.redirectUrl || '/message';
       },
     error: function (error) {
-      console.log('hi', error);
+      console.log(error);
     }
     });
 

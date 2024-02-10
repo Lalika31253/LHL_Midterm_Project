@@ -1,15 +1,15 @@
 const db = require('../connection');
 
-const getProducts = () => {
-  return db.query('SELECT * FROM products;')
-    .then(data => {
-      return data.rows;
-    })
-    .catch(error => {
-      console.log(error.message);
-      throw error;
-    });
-};
+// const getProducts = () => {
+//   return db.query('SELECT * FROM products;')
+//     .then(data => {
+//       return data.rows;
+//     })
+//     .catch(error => {
+//       console.log(error.message);
+//       throw error;
+//     });
+// };
 
 const getProduct = (id) => {
   const queryParams = [id];
@@ -76,4 +76,20 @@ const deleteProduct = (options) => {
   });
 };
 
-module.exports = { addProduct, deleteProduct, getProduct };
+
+const sold = (options) => {
+  const id = options;
+
+  let queryString = `UPDATE products SET is_sold = true WHERE id = $1`;
+
+  return db.query(queryString, [id])
+  .then(data => {
+    console.log(`${data.rowCount} rows were updated.`);
+    return data.rowCount;
+  })
+  .catch(error => {
+    console.log(error.message);
+  });
+};
+
+module.exports = { addProduct, deleteProduct, getProduct, sold };

@@ -66,10 +66,6 @@ $(document).ready(function() {
     window.location.href="/add";
   });
 
-  $(".send-message").on("click", function() {
-    window.location.href="/message";
-  });
-
   $(".small-logo").on("click", function() {
     window.location.href="/";
   });
