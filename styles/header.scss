@@ -8,11 +8,16 @@
   top: 0;
   height: 250px;
   // position: fixed;
-  background-image: url('../styles/images/header.jpg');
+  
+  background-image: url('https://images.squarespace-cdn.com/content/v1/5a454ab9fe54efc3d3028316/1548301014484-MBSEJ7UB2CNKCTJUN97O/header+img.jpg?format=2500w');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; 
 
-  background-position: center; /* Center the background image */
-  background-size: cover; /* Cover the entire container with the background image */
-  background-repeat: no-repeat; /* Do not repeat the background image */
+
+  background-position: center;
+  background-size: cover; 
+  background-repeat: no-repeat; 
   margin-top: 0;
   align-items: stretch;
 
@@ -27,18 +32,8 @@ body, header {
   margin: 0;
   padding: 0;
 }
-// .logo {
-//   width: 100px; /* Adjust the width of the logo */
-//   height: auto; /* Automatically adjust the height based on the width */
-// }
 
 .wrapper {
-  // display: flex;
-  // align-items: center;
-  // flex-direction: row;
-  // width: 100%;
-  // margin-top: 2rem;
-  // padding: 4rem;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -65,7 +60,7 @@ body, header {
     align-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    
+
 }
 
 
@@ -95,29 +90,10 @@ body, header {
   font-size: 20px;
 }
 
-// .main-logo {
-//   display: flex;
-//   width: 35%;
-//   color: rgb(223, 254, 255);
-//   font-size: 2em;
-//   font-family:cursive;
-//   -webkit-text-stroke-width: 0.1px;
-//   -webkit-text-stroke-color: $highlight-colour;
-//   text-shadow: 0px 1px 4px #0e1a05;
-//   flex-direction: column;
-//   font-size: 2em;
-// }
-
 .main-logo {
   padding-right: 100px;
-  color: #333333e6; 
+  color: #333333e6;
 }
-
-
-/* Add margin between elements */
-// .home-about-contact .header-element {
-//   margin-left: 35px; /* Adjust the margin between elements */
-// }
 
 /* Remove margin from last element */
 .home-about-contact .header-element:last-child {

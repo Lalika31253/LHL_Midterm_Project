@@ -3,62 +3,64 @@
 <header>
 
   <div class="header-section">
-  
+
     <nav class="wrapper">
-  
+
       <h1 class="main-logo">Furniture Seller</h1>
-  
+
       <nav class="nav-buttons">
         <div class="home-about-contact">
           <div class="header-element">
             <a href="/" style="text-decoration: none;"> 🏠HOME</a>
           </div>
-        
+
           <!-- Admin/Seller authentication form -->
-  
+
           <% if (!user) { %>
             <div class="header-element">
               <a href="/login" style="text-decoration: none;">LOGIN</a>
             </div>
-  
-            <div class="header-element">
-              <a href="/about" style="text-decoration: none;">ABOUT US</a>
-            </div>
-  
+
             <% } %>
-  
+
               <% if (user && user.is_admin) { %>
-  
+
                 <div class="header-element">
                   <a href="/add" style="text-decoration: none;">ADD</a>
+                  </div>
+                <div class="header-element">
+                  <a href="/message" style="text-decoration: none;">INBOX</a>
                   </div>
                   <div class="header-element"><form method="post" action="/logout">
                     <a href="/logout" style="text-decoration: none;">LOGOUT</a>
                   </form>
                   </div>
-                
-                  <nav class="log-info"><h5 class="card-text"> Logged in as: <%= user.username %></h5></nav>
-        
-  
+
+                  <nav class="log-info"><h5 class="card-text"> Logged in</h5></nav>
+
+
                 <% } else if (user) { %>
-  
+
                   <div class="header-element">
                     <a href="/favorites" style="text-decoration: none;">FAVORITES</a>
                     </div>
+                    <div class="header-element">
+                      <a href="/message" style="text-decoration: none;">INBOX</a>
+                      </div>
                     <div class="header-element">
                       <form method="post" action="/logout">
                         <a href="/logout" style="text-decoration: none;">LOGOUT</a>
                       </form>
                       </div>
-  
-                      <nav class="log-info"><h5 class="card-text"> Logged in as: <%= user.username %></h5></nav>
-        
+
+                      <nav class="log-info"><h5 class="card-text"> Logged in</h5></nav>
+
                   <% } %>
-                 
+
         </div>
       </nav>
     </nav>
-  
+
   </div>
-  
-  </header>
+
+</header>

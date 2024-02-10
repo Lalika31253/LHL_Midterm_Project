@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-  $('#new-product-form').on('submit', function (event) {
+  $('#new-product-form').submit (function (event) {
     event.preventDefault();
     console.log('Form submitted!');
 
@@ -25,8 +25,4 @@ $(document).ready(function () {
   });
 });
 
-
-  // - That form will make a query post request to the back end
-  // - ie $.post('localhost:8000/api/add')
-  // - backend will have app.post('/api/add')
 

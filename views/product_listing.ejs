@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Form</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/get_product_id.js"></script>
+</head>
+<body>
+  <%- include('header', { user: user ? { is_admin: user.is_admin } : null }) %>
+
+  <h2>Featured item</h2>
+
+  <% if (user) { %>
+    <div id="product-container">
+      
+    
+      <article class="featured-item" data-product-id="<%= product.id %>">
+        <!-- Preview Images -->
+        <section class="featured-item__preview-images">
+          <% for (let i = 1; i <= 3; i++) { %>
+            <img src="<%- product[`photo_url_${i}`] %>" alt="featured-furniture" class="featured-item__preview-image" style="width: 200px; border: solid;">
+          <% } %>
+        </section>
+      
+        <!-- Product Details -->
+        <section class="featured-item__details">
+          <h3 class="featured-item__title"><%- product.title %></h3>
+          <footer class="featured-item__footer">
+            <!-- Quantity in Stock -->
+            <div class="featured-item__info">
+              <b>Quantity in stock:</b> <%- product.stock_quantity %>
+            </div>
+            
+            <!-- Price -->
+            <div class="featured-item__info">
+             <b>Price:</b> $<%- product.price/100 %>
+            </div>
+            
+            <!-- Description -->
+            <div class="featured-item__info">
+              <b>Description:</b> <%- product.description %>
+            </div>
+            
+            <!-- Availability -->
+            <div class="featured-item__info">
+              <b>Available:</b> <% if (product.is_sold === false) { %>
+                <span>Not sold</span>
+              <% } else { %>
+                <span>SOLD</span>
+              <% } %>
+            </div>
+            
+            <!-- Send Message Button -->
+            <div class="featured-item__action">
+              <a href="/message" class="btn btn-secondary">Send message to user</a>
+            </div>
+          </footer>
+        </section>
+      </article>
+      
+  <% } else if (user && user.is_admin){ %>
+    <div id="product-container">
+      <article class="" data-product-id="<%= product.id %>">
+        <section class="featured-item__preview-image">
+          <img src="<%- product.photo_url_1 %>" alt="featured-furniture" style="width: 200px; border:solid;">
+        </section>
+        <section class="featured-item__preview-image">
+          <img src="<%- product.photo_url_2 %>" alt="featured-furniture" style="width: 200px; border:solid;">
+        </section>
+        <section class="featured-item__preview-image">
+          <img src="<%- product.photo_url_3 %>" alt="featured-furniture" style="width: 200px; border:solid;">
+        </section>
+        <section class="featured-item__details">
+          <h3 class="featured-item__title"><%- product.title %></h3>
+          <footer class="featured-item__footer">
+            <div class="featured-item__rating">Quantity in stock: <%- product.stock_quantity %></div>
+            <br>
+            <div class="featured-item__price">Price: $<%- product.price/100 %></div>
+            <br>
+            <div class="featured-item__description">Description: <%- product.description %></div>
+            <br>
+            <div class="featured-item__message">Available:
+              <% if (product.is_sold === false) { %>
+                <span>Not sold</span>
+              <% } else { %>
+                <span>SOLD</span>
+              <% } %>
+            </div>
+            <div class="featured-item__message"><a href="/message">Send message to user</a></div>
+            <br>
+          </footer>
+        </section>
+      </article>
+  </div>
+     
+      <% } %>
+    
+    </div>
+ 
+  
+  <small>Copyright LHL OCT 16 COHORT</small>
+
+   <!-- Bootstrap JS -->
+   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+   crossorigin="anonymous"></script> -->
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+   integrity="sha384-u8z6wCDO/iPduYNySEGAhJdkZLfReQofMEJ9b98loF4bRs35nusD2PrEAe82LJbP"
+   crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+   integrity="sha384-rE5tIc/Z9b4HeL6lZ5bjx6GcSd3JKLjo1fKjHAUeOLByE4K9NzFDrsSBDl6e9Zz4"
+   crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,14 +1,7 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into /users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
-const { addProduct } = require('../db/queries/products');
+const { getProduct } = require('../db/queries/products');
 
 // Middleware to check if the user is logged in and set user object in res.locals
 router.use((req, res, next) => {
@@ -36,26 +29,25 @@ router.use((req, res, next) => {
 
 
 //route to handle add_product
-router.route('/')
-  .get((req, res) => {
-    // Get the user data from res.locals
+router.get('/:id', async (req, res) => {
+  const productId = req.params.id;
+ 
+  try {
     const userData = res.locals.user || {};
-    console.log('userData from form', userData);
-    res.render('new_form', { user: userData })
-  })
-
-  .post(async (req, res) => {
-    console.log('POST request to /api/add received!');
-    try {
-      const formData = req.body;
-      console.log('Form Data:', formData);
-      const newProduct = await addProduct(formData);
-
-      res.json({success: true, newProduct, redirectUrl: '/'});
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({success: false, error: 'Server error'});
+    const products = await getProduct(productId);
+    if (products && products.length > 0) {
+      const product = products[0];
+      console.log(product);
+      res.render('product_listing', { product, user: userData } );
+    } else {
+      res.status(404).json({ success: false, error: 'Product not found' });
     }
-  });
+  } catch (error) {
+    console.error(error.stack)
+    res.status(500).json({ success: false, error: 'Server error' });
+  }
+});
 
 module.exports = router;
+
+

@@ -28,16 +28,6 @@ const createProduct = function (productData) {
   `;
 }
 
-// Load products on main page -- in progress
-
-const renderProducts = (productData) => {
-  for (const product of productData) {
-    const $product = createProduct(product);
-    $('.product-container').prepend($product);
-  }
-
-};
-
 // For filtering prodcuts by price
 
 $('#filter-price-form').submit(function (event) {
@@ -65,5 +55,10 @@ $(document).ready(function() {
   $(".add_button").on("click", function() {
     window.location.href="/add";
   });
+
+  $(".small-logo").on("click", function() {
+    window.location.href="/";
+  });
+
 });
 

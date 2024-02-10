@@ -1,11 +1,13 @@
-const { response } = require("express");
+
 
 $(document).ready(function () {
 
-  $('#send-message-form').on('submit', function (event) {
+  $('#send-message-form').off('submit').on('submit', function (event) {
     event.preventDefault();
     // Serialize form data
     const formData = $(this).serialize();
+
+    console.log('Form data: ', formData);
 
     // Send a POST request to the server
     $.ajax({
@@ -14,6 +16,7 @@ $(document).ready(function () {
       data: formData,
       success: function (response) {
         console.log('success');
+        window.location.href = response.redirectUrl || '/message';
       },
     error: function (error) {
       console.log(error);
@@ -23,8 +26,3 @@ $(document).ready(function () {
   });
 });
 
-  // - That form will make a query post request to the back end
-  // - ie $.post('localhost:8000/api/add')
-  // - backend will have app.post('/api/add')
-
-s

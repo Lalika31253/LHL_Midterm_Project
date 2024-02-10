@@ -1,28 +1,19 @@
-$site-colour: rgb(249, 240, 181);
+$site-colour: rgb(139, 137, 137);
 $favourite-colour: red;
-$highlight-colour: rgba(109, 250, 255, 0.883);
+$highlight-colour: rgba(180, 150, 145, 0.883);
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   background-color: $site-colour;
-  // background-color: #0000003d;
-  background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+  // background-color: #2910103d;
+  // background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
   min-height: 100%;
   width: 100%;
+  background-color: #fff;
 }
-
-// .main-logo {
-//   color: rgb(223, 254, 255);
-//   font-size: 6em;
-//   font-family:cursive;
-//   -webkit-text-stroke-width: 0.1px;
-//   -webkit-text-stroke-color: $highlight-colour;
-//   text-shadow: 0px 1px 4px #0e1a05;
-// }
 
 #product-container {
   display: flex;
@@ -33,7 +24,7 @@ body {
 }
 
 .featured-item {
-  background-color:white;
+  background-color:rgb(213, 210, 210);
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
@@ -47,6 +38,10 @@ body {
   .featured-item__title {
     font-size: 175%;
   }
+}
+
+.featured-item:hover {
+    box-shadow: 2px 2px 2px 1px $highlight-colour;
 }
 
 .nav {
@@ -64,3 +59,15 @@ small {
   color: red;
 }
 
+body h1, h2, h3 {
+  color: #333; /* Change text color to dark gray */
+  font-family: Arial, sans-serif; /* Specify font family */
+  text-align: center; /* Center align the text */
+}
+
+body h1, h2, h3 {
+  color: #333;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 30px;
+}
