@@ -46,7 +46,7 @@ const addProduct = (options) => {
 
   let queryString = `
   INSERT INTO products(title, description, price, photo_url_1, photo_url_2, photo_url_3, stock_quantity)
-  VALUES ($1, $2, $3, $4, $5, $6, $7)
+  VALUES ($1, $2, ($3*100), $4, $5, $6, $7)
   RETURNING *;`;
 
   return db.query(queryString, queryParams)
