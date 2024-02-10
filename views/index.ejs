@@ -24,6 +24,7 @@
   <script defer src="/scripts/app.js"></script>
   <script defer src="/scripts/delete.js"></script>
   <script defer src="scripts/get_product_id.js"></script>
+  <script defer src="scripts/favorites.js"></script>
 </head>
 
 <body>
@@ -81,7 +82,7 @@
                 </div>
                 <div class="featured-item__message"><a href="/message">Send message to user</a></div>
                 <br>
-                <div class="featured-item__favourite">Favourite <i class="fa-regular fa-heart"></i></div>
+
 
                 <form method="POST" action="/delete" class="delete_product">
                   <input type="hidden" name="itemId" value="<%= products[id].id  %>">
@@ -128,7 +129,11 @@
                   </div>
                   <div class="featured-item__message"><a href="/message">Send message to user</a></div>
                   <br>
-                  <div class="featured-item__favourite">Favourite <i class="fa-regular fa-heart"></i></div>
+
+                  <form method="POST" action="/favorites" class="favorite_product">
+                    <input type="hidden" name="itemId" value="<%= products[id].id  %>">
+                    <button type="submit" class="favorite_button">Favorite</button>
+                  </form>
 
                 </footer>
               </section>
