@@ -54,7 +54,7 @@ const addProduct = (options) => {
     return data.rows;
   })
   .catch(error => {
-    console.log(error.message);
+    throw error;
   });
 };
 

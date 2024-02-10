@@ -1,55 +1,41 @@
-// const db = require('../connection');
-
-// // Send a message
-
-// const sendMessage = function (options) {
-//   // Logging the content to make sure it's what we expect
-//   console.log(options.content);
-
-//   // Basic validation
-//   if (!options.content) {
-//     return Promise.reject(new Error('Missing message'));
-//   }
-
-//   let query = `
-//     INSERT INTO messages(content)
-//     VALUES($1)
-//     RETURNING *;
-//   `;
-
-//   const queryParams = [options.content];
-
-//   return db.query(query, queryParams)
-//     .then((res) => {
-//       return res.rows;
-//     })
-//     .catch((err) => {
-//       throw err;
-//     });
-// }
-
-// module.exports = { sendMessage };
-
-
 const db = require('../connection');
 
-// Send a message
-const sendMessage = function (options) {
-  // Logging the options to make sure it's what we expect
-  console.log(options);
+// Take the email from the receiver_id input and match it to the receiver_id in the database
 
-  // Basic validation for message content and IDs
-  if (!options.content || !options.sender_id || !options.receiver_id) {
-    return Promise.reject(new Error('Missing required message fields'));
+// Turn user email into id number
+
+const emailToId = function(email) {
+  let query = `
+  SELECT id FROM users WHERE email = $1;
+  `;
+
+  const queryParams = [email];
+
+  return db.query(query, queryParams)
+  .then((res) => {
+    return res.rows;
+  })
+  .catch((err) => {
+    throw err;
+  });
+}
+
+// Send a message
+
+const sendMessage = function (id, receiver, content) {
+
+  // Basic validation
+  if (!content) {
+    return Promise.reject(new Error('Missing message'));
   }
 
   let query = `
-    INSERT INTO messages (sender_id, receiver_id, content, created_at)
-    VALUES ($1, $2, $3, NOW()) RETURNING *;
+    INSERT INTO messages(sender_id, receiver_id, content)
+    VALUES($1, $2, $3)
+    RETURNING *;
   `;
 
-  // Including sender_id and receiver_id in queryParams
-  const queryParams = [options.sender_id, options.receiver_id, options.content];
+  const queryParams = [id, receiver, content];
 
   return db.query(query, queryParams)
     .then((res) => {
@@ -60,4 +46,4 @@ const sendMessage = function (options) {
     });
 }
 
-module.exports = { sendMessage };
+module.exports = { sendMessage, emailToId };

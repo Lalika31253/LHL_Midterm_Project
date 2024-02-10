@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,38 +16,42 @@
 
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
-  <script defer src="/scripts/message.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/scripts/message.js"></script>
+  <!-- <script src="/scripts/sms.js"></script> -->
 
 
 </head>
+
 <body>
   <%- include('header', { user: user ? { is_admin: user.is_admin } : null }) %>
 
-  <h1>Send message <span id="user"></span></h1>
 
-  <form id="send-message-form">
-    <div class="send-message__field-wrapper">
-      <textarea name="" id="" cols="30" rows="10"></textarea>
+    <form id="send-message-form">
+      <div class="send-message__field-wrapper">
+        <h1>Send message to email: <input type="email" name="email" placeholder="email"
+          id="email"></h1>
+        <textarea name="content" id="send-message-text" cols="30" rows="10"></textarea>
+      </div>
+      <button type="submit" class="send-message">Send</button>
+    </form>
+
+    <div id="messages-received">
+      <h2> Inbox </h2>
+
+
+
+      <% for (let id in messages) { %>
+        <article class="message-box">
+          <div>Message from user: <%- messages[id].sender_id %></div>
+          <p><%- messages[id].content %></p>
+          <div>Sent at <%- messages[id].created_at %></div>
+
+        </article>
+        <% } %>
     </div>
-    <button type="submit" class="send-message">Send</button>
-  </form>
 
-  <div id="messages-received">
-  <h2> Inbox </h2>
-    <% for (let id in messages) { %>
-      <article class="message-box">
-      <div>Message from user: <%- messages[id].sender_id %></div>
-      <p><%- messages[id].content %></p>
-      <div>Sent at <%- messages[id].created_at %></div>
-
-      </article>
-      <% } %>
-    </div>
-
-  <script defer src="/scripts/message.js"></script>
+    <script defer src="/scripts/message.js"></script>
 </body>
+
 </html>
-
-
-

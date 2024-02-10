@@ -1,6 +1,38 @@
+$highlight-colour: rgba(184, 140, 132, 0.883);
+
 .message-box {
+  font-size: 1.5em;
   background-color: white;
   padding: 20px;
   border: thick double brown;
   border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+
+#send-message-text {
+  font-size: 1.5em;
+ width: 100%;
+ background-color: rgba(255, 255, 255, 0.803);
+}
+
+.send-message {
+  font-size: 1.5em;
+  color: white;
+  background-color: rgba(165, 42, 42, 0.78);
+  padding: 20px;
+  border-radius: 50px;
+  border: none;
+}
+
+.message-box:hover {
+  box-shadow: 2px 2px 2px 1px $highlight-colour;
+}
+
+.send-message:hover {
+  box-shadow: 2px 2px 2px 1px $highlight-colour;
+}
+
+#send-message-text:hover {
+  box-shadow: 2px 2px 2px 1px $highlight-colour;
 }

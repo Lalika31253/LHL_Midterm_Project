@@ -1,7 +1,7 @@
-const { response } = require("express");
+// const { response } = require("express");
 
 $(document).ready(function () {
-  
+
   $('.login-form').on('submit', function (event) {
     event.preventDefault();
     // Serialize form data
