@@ -1,13 +1,6 @@
 const db = require('../connection');
 
 // Take the email from the receiver_id input and match it to the receiver_id in the database
-//SELECT id FROM users WHERE email = $1;
-
-// const idToEmail = function(id) {
-//   return db.query(`
-//   SELECT email FROM users WHERE id = ${id}
-//   `);
-// }
 
 // Turn user email into id number
 
