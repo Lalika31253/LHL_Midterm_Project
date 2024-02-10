@@ -53,6 +53,7 @@ const favoritesRoutes = require('./routes/favorites');
 
 const filterRoutes = require('./routes/filter');
 const messageRoutes = require('./routes/message');
+const markSoldRoutes = require('./routes/mark_as_sold');
 const deleteRoutes = require('./routes/delete');
 const productRoutes = require('./routes/product_id');
 
@@ -60,7 +61,7 @@ const productRoutes = require('./routes/product_id');
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
-app.use('/api/filter', filterRoutes);
+app.use('/filter', filterRoutes);
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
@@ -69,6 +70,7 @@ app.use('/add', newProductForm);
 app.use('/favorites', favoritesRoutes);
 
 app.use('/message', messageRoutes);
+app.use('/marksold', markSoldRoutes);
 app.use('/delete', deleteRoutes);
 app.use('/product', productRoutes);
 
@@ -103,10 +105,9 @@ app.use((req, res, next) => {
   }
 });
 
-
-
 app.get('/', (req, res) => {
   const user = res.locals.user;
+  console.log(user);
     db.query(`SELECT * FROM products`)
       .then(data => {
         res.render('index', { products: data.rows, user });
@@ -114,7 +115,6 @@ app.get('/', (req, res) => {
       .catch(error => {
         res.status(500).json({ error: error.message });
       });
-  // }
 });
 
 app.listen(PORT, () => {
