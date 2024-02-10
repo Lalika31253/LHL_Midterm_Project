@@ -1,16 +1,8 @@
 
-// $(document).ready(function () {
-// $(document).on('click', '.featured-item', function () {
-//   const productId = $(this).data('product-id');
-//   const productDetailsUrl = `/product/${productId}`;
-//   window.location.href = productDetailsUrl;
-
-// });
-// });
 
 // $(document).ready(function () {
 
-//   $('.featured-item__preview-image').on('click', function () {
+//   $(document).on('click', '.featured-item', function () {
 //     const productId = $(this).data('product-id');
 //   // Send a GET request to the server to fetch product details
 //   $.ajax({
@@ -24,10 +16,8 @@
 //     },
 //     error: function (error) {
 //       console.log(error);
-
 //     }
 //   });
-// });
 // });
 
 

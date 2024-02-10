@@ -50,6 +50,7 @@ const logoutRoutes = require('./routes/logout');
 const searchRoutes = require('./routes/search');
 const newProductForm = require('./routes/users');
 const favoritesRoutes = require('./routes/favorites');
+
 const filterRoutes = require('./routes/filter');
 const messageRoutes = require('./routes/message');
 const markSoldRoutes = require('./routes/mark_as_sold');
@@ -60,13 +61,14 @@ const productRoutes = require('./routes/product_id');
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
-app.use('/filter', filterRoutes);
+app.use('/api/filter', filterRoutes);
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
 app.use('/logout', logoutRoutes);
 app.use('/search', searchRoutes);
 app.use('/add', newProductForm);
 app.use('/favorites', favoritesRoutes);
+
 app.use('/message', messageRoutes);
 app.use('/mark_as_sold', markSoldRoutes);
 app.use('/delete', deleteRoutes);
@@ -102,8 +104,6 @@ app.use((req, res, next) => {
     next();
   }
 });
-
-
 
 app.get('/', (req, res) => {
   const user = res.locals.user;

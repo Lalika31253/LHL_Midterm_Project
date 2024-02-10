@@ -1,17 +1,17 @@
 $highlight-colour: rgba(184, 140, 132, 0.883);
 
 .message-box {
-  font-size: 1.5em;
-  background-color: white;
+  background-color: rgb(237, 232, 232);
   padding: 20px;
   border: thick double brown;
   border-radius: 20px;
   margin-bottom: 10px;
+  font-size: 1.5em;
 }
 
 
 #send-message-text {
-  font-size: 1.5em;
+ font-size: 1.5em;
  width: 100%;
  background-color: rgba(255, 255, 255, 0.803);
 }

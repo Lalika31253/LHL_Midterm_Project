@@ -16,18 +16,25 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <!-- <script src="/scripts/app.js"></script> -->
   <script src="/scripts/message.js"></script>
+  <!-- <script src="/scripts/sms.js"></script> -->
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+   integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
 
 </head>
 
 <body>
   <%- include('header', { user: user ? { is_admin: user.is_admin } : null }) %>
 
+  <h1>Send message<span id="user"></span></h1>
+
 
     <form id="send-message-form">
       <div class="send-message__field-wrapper">
         <h1>Send message to email: <input type="email" name="email" placeholder="email"
-          id="email"></h1>
-        <textarea name="content" id="send-message-text" cols="30" rows="10"></textarea>
+          id="email" style='background-color:rgb(212, 205, 205)'></h1>
+        <textarea name="content" id="send-message-text" cols="30" rows="10" style='background-color:rgb(212, 205, 205)'></textarea>
       </div>
       <button type="submit" class="send-message">Send</button>
     </form>
@@ -45,6 +52,20 @@
     </div>
 
     <script defer src="/scripts/message.js"></script>
+
+        <!-- Bootstrap JS -->
+     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+     crossorigin="anonymous"></script> -->
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+   integrity="sha384-u8z6wCDO/iPduYNySEGAhJdkZLfReQofMEJ9b98loF4bRs35nusD2PrEAe82LJbP"
+   crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+   integrity="sha384-rE5tIc/Z9b4HeL6lZ5bjx6GcSd3JKLjo1fKjHAUeOLByE4K9NzFDrsSBDl6e9Zz4"
+   crossorigin="anonymous"></script>
+</body>
+</html>
+
 </body>
 
 </html>
