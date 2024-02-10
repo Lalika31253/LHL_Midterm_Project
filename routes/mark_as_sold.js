@@ -98,20 +98,42 @@ router.use((req, res, next) => {
     // If no user ID in cookies, proceed to next middleware
     next();
   }
+
+  const userCheckQuery = `SELECT * FROM users WHERE id = $1`;
+  db.query(userCheckQuery, [userId])
+    .then(data => {
+      if (data.rows.length === 0) {
+        return res.status(401).json({ error: 'Unauthorized. Invalid user ID.' });
+      }
+
+      const user = data.rows[0];
+      if (!user.is_admin) {
+        return res.status(401).json({ error: 'Unauthorized. Only admins can perform this actin.' });
+      }
+
+      const productId = req.params.productId;
+      const query = `UPDATE products SET is_sold = true WHERE id = $1`;
+      return db.query(query, [productId]);
+    })
+    .then(() => {
+      res.json({ message: 'Product marked as sold' });
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message });
+    });
 });
 
 router.route('/')
-.post(async (req, res) => {
-  try {
-  const id = req.body.itemId;
-  // console.log(req.body.itemId);
-  const markSold = await sold(id);
-  res.json({success: true, markSold });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({success: false, error: 'Server error'});
+  .post(async(req, res) => {
+    try {
+      const id = req.body.itemId;
+      const markSold = await sold(id);
+      res.json({success: true, markSold });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({success: false, error: 'Server error'});
 
-  }
-});
+    }
+  });
 
 module.exports = router;
