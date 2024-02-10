@@ -28,6 +28,7 @@
   <script defer src="/scripts/app.js"></script>
   <script defer src="/scripts/delete.js"></script>
   <script defer src="scripts/get_product_id.js"></script>
+  <script defer src="scripts/favorites.js"></script>
 </head>
 
 <body>
@@ -75,7 +76,7 @@
                 <div class="featured-item__description">Description: <%- products[id].description %></div>
                 <br>
                 <div class="featured-item__message">Avalable:
-                  <% if (products[id].is_sold===false) { %>
+                  <% if (products[id].is_sold === false) { %>
                     <span>Not sold</span>
                     <% } else { %>
                       <span>SOLD</span>
@@ -83,11 +84,16 @@
                 </div>
                 <div class="featured-item__message"><a href="/message">Send message to user</a></div>
                 <br>
-                <div class="featured-item__favourite">Favourite <i class="fa-regular fa-heart"></i></div>
+
 
                 <form method="POST" action="/delete" class="delete_product">
                   <input type="hidden" name="itemId" value="<%= products[id].id  %>">
                   <button type="submit" class="delete_button btn btn-outline-danger">Delete</button>
+                </form>
+
+                <form method="POST" action="/mark_as_sold" class="mark_sold">
+                  <input type="hidden" name="itemId" value="<%= products[id].id  %>">
+                  <button type="submit" class="mark_sold_button">Mark as SOLD</button>
                 </form>
 
 
@@ -125,7 +131,11 @@
                   </div>
                   <div class="featured-item__message"><a href="/message">Send message to user</a></div>
                   <br>
-                  <div class="featured-item__favourite">Favourite <i class="fa-regular fa-heart"></i></div>
+
+                  <form method="POST" action="/favorites" class="favorite_product">
+                    <input type="hidden" name="itemId" value="<%= products[id].id  %>">
+                    <button type="submit" class="favorite_button">Favorite</button>
+                  </form>
 
                 </footer>
               </section>

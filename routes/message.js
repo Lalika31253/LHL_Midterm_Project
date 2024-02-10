@@ -73,17 +73,16 @@ router.route('/')
     });
 })
 
-router.route('/')
-.post(async (req, res) => {
+router.post('/', async (req, res) => {
   const userId = req.cookies.user_id;
   console.log('POST request received!', req.body);
   try {
     const formData = req.body;
     const receiverId = await emailToId(formData.email);
-    // console.log('Form Data:', receiverId[0].id);
     const newMessage = await sendMessage(userId, receiverId[0].id, formData.content);
 
-   res.json({success: true, newMessage, redirectUrl: '/message'});
+  //  res.json({success: true, newMessage, redirectUrl: '/message'});
+  res.redirect('/message')
  } catch (error) {
    console.log(error);
    res.status(500).json({success: false, error: 'Server error'});

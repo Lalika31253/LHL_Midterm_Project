@@ -70,7 +70,7 @@ app.use('/add', newProductForm);
 app.use('/favorites', favoritesRoutes);
 
 app.use('/message', messageRoutes);
-app.use('/marksold', markSoldRoutes);
+app.use('/mark_as_sold', markSoldRoutes);
 app.use('/delete', deleteRoutes);
 app.use('/product', productRoutes);
 

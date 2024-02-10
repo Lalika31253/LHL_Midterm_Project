@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Form</title>
-
+  <title>Send message</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
@@ -14,9 +13,8 @@
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/message.css" />
 
-
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script src="/scripts/app.js"></script>
+  <!-- <script src="/scripts/app.js"></script> -->
   <script src="/scripts/message.js"></script>
   <!-- <script src="/scripts/sms.js"></script> -->
 
@@ -43,8 +41,6 @@
 
     <div id="messages-received">
       <h2> Inbox </h2>
-
-
       <% for (let id in messages) { %>
         <article class="message-box">
           <div>Message from user: <%- messages[id].sender_id %></div>
