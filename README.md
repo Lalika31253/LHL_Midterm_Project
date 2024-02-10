@@ -3,11 +3,11 @@ Midterm Buy/Sell Website Project
 This is a mock version of IKEA store or Leon's. Buy and Sell your furniture via different listings!
 ## Final product
 
-![Home page](./..........)
+![Home page](/media/homepage.jpg)
 
-![Login form](./..........)
+![Login form](/media/login.jpg)
 
-![Add a product](./..........)
+![Send a message](/media/sendmessage.jpg)
 
 
 
