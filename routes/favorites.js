@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
-//
+
 router.get('/', (req, res) => {
   const userId = req.cookies.user_id;
   const query = `SELECT DISTINCT products.id, products.title, products.price FROM products JOIN favorites ON products.id = favorites.product_id WHERE favorites.user_id = $1`;
@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
     return res.status(401).json({ error: 'Unauthorized. User not logged in.' });
   }
 
-  const userCheckQuery = `SELECT * FROM users WHERE id = $1`;// Next, verify that the userId represents a real user in the database
+  const userCheckQuery = `SELECT * FROM users WHERE id = $1`;
   db.query(userCheckQuery, [userId])
     .then(data => {
       if (data.rows.length === 0) {

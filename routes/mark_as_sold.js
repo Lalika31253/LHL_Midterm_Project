@@ -22,7 +22,6 @@ router.post('/:productId/sold', (req, res) => {
       }
 
       const productId = req.params.productId;
-      console.log('productId:', productId);
       const query = `UPDATE products SET is_sold = true WHERE id = $1`;
       return db.query(query, [productId]);
     })

@@ -14,9 +14,7 @@ router.post('/', (req, res) => {
 
   loginUsers(email, password)
     .then(user => {
-      console.log('User is' + JSON.stringify(user));
       if (!user) {
-
         return res.status(401).json({ error: 'Invalid username or password' });
       }
 
@@ -27,8 +25,8 @@ router.post('/', (req, res) => {
       res.cookie('user_id', user.id, {maxAge: 24 * 60 * 60 * 1000});
 
       res.locals.user = user;
-      // res.json({ message: 'Login successful'});
-      res.redirect('/'); //pas user object to the template
+      res.json({ message: 'Login successful'});
+      // res.redirect('/'); //pas user object to the template
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
@@ -36,4 +34,3 @@ router.post('/', (req, res) => {
 });
 
 module.exports = router;
-

@@ -1,7 +1,7 @@
 const { response } = require("express");
 
 $(document).ready(function () {
-  
+
   $('.login-form').on('submit', function (event) {
     event.preventDefault();
     // Serialize form data
@@ -16,9 +16,9 @@ $(document).ready(function () {
         console.log('success');
         window.location.href = response.redirectUrl || '/';
       },
-    error: function (error) {
-      console.log(error);
-    }
+      error: function (error) {
+        console.log(error);
+      }
     });
 
   });

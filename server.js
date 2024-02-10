@@ -53,8 +53,7 @@ const favoritesRoutes = require('./routes/favorites');
 const filterRoutes = require('./routes/filter');
 const messageRoutes = require('./routes/message');
 const markSoldRoutes = require('./routes/mark_as_sold');
-const filterRoutes = require('./routes/filter');
-const messageRoutes = require('./routes/message');
+
 const deleteRoutes = require('./routes/delete');
 
 // Mount all resource routes
@@ -108,25 +107,13 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   const user = res.locals.user;
-  if (!user) {
-    // If user is not logged in
-    db.query(`SELECT * FROM products`)
-      .then(data => {
-        res.render('index', { products: data.rows, user });
-      })
-      .catch(error => {
-        res.status(500).json({ error: error.message });
-      });
-  } else {
-    // If user is logged in
-    db.query(`SELECT * FROM products`)
-      .then(data => {
-        res.render('index', { products: data.rows, user });
-      })
-      .catch(error => {
-        res.status(500).json({ error: error.message });
-      });
-  }
+  db.query(`SELECT * FROM products;`)
+    .then(data => {
+      res.render('index', { products: data.rows, user });
+    })
+    .catch(error => {
+      res.status(500).json({ error: error.message });
+    });
 });
 
 app.listen(PORT, () => {
